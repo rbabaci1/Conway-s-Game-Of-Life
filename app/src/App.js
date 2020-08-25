@@ -1,100 +1,113 @@
-import React, { useState, useEffect } from "react";
-
 import Grid from "./components/Grid/index";
 import "./App.scss";
 
-function App() {
-  let speed = 1000;
-  let rows = 30;
-  let columns = 50;
+import React, { Component } from "react";
 
-  const [generation, setGeneration] = useState(0);
-  const [fullGrid, setFullGrid] = useState(
-    Array(rows)
-      .fill()
-      .map(() => Array(columns).fill(false))
-  );
+class App extends Component {
+  constructor() {
+    super();
+    this.speed = 500;
+    this.rows = 30;
+    this.columns = 50;
 
-  const selectCell = (row, col) => {
-    let gridCopy = [...fullGrid];
+    this.state = {
+      generation: 0,
+      fullGrid: Array(this.rows)
+        .fill()
+        .map(() => Array(this.columns).fill(false)),
+    };
+  }
+
+  selectCell = (row, col) => {
+    let gridCopy = [...this.state.fullGrid];
     gridCopy[row][col] = !gridCopy[row][col];
 
-    setFullGrid(gridCopy);
+    this.setState({ fullGrid: gridCopy });
   };
 
-  const generateCells = () => {
-    let gridCopy = [...fullGrid];
-    for (let i = 0; i < rows; i++) {
-      for (let j = 0; j < columns; j++) {
-        if (Math.floor(Math.random() * 5) === 1) {
+  generateCells = () => {
+    let gridCopy = [...this.state.fullGrid];
+    for (let i = 0; i < this.rows; i++) {
+      for (let j = 0; j < this.columns; j++) {
+        if (Math.floor(Math.random() * 10) === 1) {
           gridCopy[i][j] = true;
         }
       }
     }
-    setFullGrid(gridCopy);
+    this.setState({ fullGrid: gridCopy });
   };
 
-  const play = () => {
-    let gridCopy = [...fullGrid];
+  playGame = () => {
+    clearInterval(this.intervalId);
+    this.intervalId = setInterval(this.play, this.speed);
+  };
+
+  play = () => {
+    let gridCopy = [...this.state.fullGrid];
+    let grid = this.state.fullGrid;
     /*
       1- For i to be a valid index, must be bigger than 0 smaller than rows - 1
       2- For j to be a valid index, must be bigger than 0 smaller than columns - 1
     */
 
-    for (let i = 0; i < rows; i++) {
-      for (let j = 0; j < columns; j++) {
-        let counter = 0;
+    for (let i = 0; i < this.rows; i++) {
+      for (let j = 0; j < this.columns; j++) {
+        let liveNeighbors = 0;
         // if top neighbor is alive and i is valid
-        if (i > 0) if (fullGrid[i - 1][j]) counter++;
+        if (i > 0) if (grid[i - 1][j]) liveNeighbors++;
         // if top left neighbor is alive and i & j are valid
-        if (i > 0 && j > 0) if (fullGrid[i - 1][j - 1]) counter++;
+        if (i > 0 && j > 0) if (grid[i - 1][j - 1]) liveNeighbors++;
         // if top right neighbor is alive and i & j are valid
-        if (i > 0 && j < columns - 1) if (fullGrid[i - 1][j + 1]) counter++;
+        if (i > 0 && j < this.columns - 1) {
+          if (grid[i - 1][j + 1]) liveNeighbors++;
+        }
         // if right neighbor is alive and and i & j are valid
-        if (j < columns - 1) if (fullGrid[i][j + 1]) counter++;
+        if (j < this.columns - 1) if (grid[i][j + 1]) liveNeighbors++;
         // if left neighbor is alive and and  j is valid
-        if (j > 0) if (fullGrid[i][j - 1]) counter++;
+        if (j > 0) if (grid[i][j - 1]) liveNeighbors++;
         // if bottom neighbor is alive and i is valid
-        if (i < rows - 1) if (fullGrid[i + 1][j]) counter++;
+        if (i < this.rows - 1) if (grid[i + 1][j]) liveNeighbors++;
         // if bottom left neighbor is alive and i & j are valid
-        if (i < rows - 1 && j > 0) if (fullGrid[i + 1][j - 1]) counter++;
+        if (i < this.rows - 1 && j > 0) if (grid[i + 1][j - 1]) liveNeighbors++;
         // if bottom right neighbor is alive and i & j are valid
-        if (i < rows - 1 && columns - 1) if (fullGrid[i + 1][j + 1]) counter++;
+        if (i < this.rows - 1 && this.columns - 1) {
+          if (grid[i + 1][j + 1]) liveNeighbors++;
+        }
 
         // if a cell is alive and has less than 2 or more than 3 live neighbors, it will die
-        if (fullGrid[i][j] && (counter < 2 || counter > 3))
+        if (grid[i][j] && (liveNeighbors < 2 || liveNeighbors > 3)) {
           gridCopy[i][j] = false;
+        }
         // if a cell is dead and has 3 live neighbors, it will be born
-        if (!fullGrid[i][j] && counter === 3) gridCopy[i][j] = true;
+        if (!grid[i][j] && liveNeighbors === 3) gridCopy[i][j] = true;
       }
     }
 
-    setFullGrid(gridCopy);
+    this.setState({
+      generation: this.state.generation + 1,
+      fullGrid: gridCopy,
+    });
   };
 
-  const playGame = () => {
-    let intervalId = setInterval(play, speed);
-    clearInterval(intervalId);
-  };
+  componentDidMount() {
+    this.generateCells();
+  }
 
-  useEffect(() => {
-    generateCells();
-    // playGame();
-  }, []);
+  render() {
+    return (
+      <div className="App">
+        <h1>Game Of Life!</h1>
+        <h2>Generations: {this.generation}</h2>
 
-  return (
-    <div className="App">
-      <h1>Game Of Life!</h1>
-      <h2>Generations: {generation}</h2>
-
-      <Grid
-        fullGrid={fullGrid}
-        rows={rows}
-        columns={columns}
-        selectCell={selectCell}
-      />
-    </div>
-  );
+        <Grid
+          fullGrid={this.state.fullGrid}
+          rows={this.rows}
+          columns={this.columns}
+          selectCell={this.selectCell}
+        />
+      </div>
+    );
+  }
 }
 
 export default App;
