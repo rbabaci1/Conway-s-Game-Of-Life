@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import Grid from "./components/Grid/index";
 import Commands from "./components/Commands";
+import setInitialState from "./initialState";
 import "./App.scss";
 
 class App extends Component {
@@ -11,12 +12,7 @@ class App extends Component {
     this.rows = 30;
     this.columns = 50;
 
-    this.state = {
-      generation: 0,
-      fullGrid: Array(this.rows)
-        .fill()
-        .map(() => Array(this.columns).fill(false)),
-    };
+    this.state = setInitialState(this.rows, this.columns);
   }
 
   selectCell = (row, col) => {
@@ -94,6 +90,26 @@ class App extends Component {
     clearInterval(this.intervalId);
   };
 
+  slow = () => {
+    this.speed = 1500;
+    this.playGame();
+  };
+
+  fast = () => {
+    this.speed = 500;
+    this.playGame();
+  };
+
+  clearGame = () => {
+    this.setState(setInitialState(this.rows, this.columns));
+  };
+
+  setGridSize = (cols, rows) => {
+    this.rows = rows;
+    this.columns = cols;
+    this.clearGame();
+  };
+
   render() {
     return (
       <div className="App">
@@ -110,11 +126,11 @@ class App extends Component {
         <Commands
           fast={this.fast}
           slow={this.slow}
-          gridSize={this.gridSize}
+          setGridSize={this.setGridSize}
           generateCells={this.generateCells}
           playGame={this.playGame}
           pauseGame={this.pauseGame}
-          clearGame={this.clear}
+          clearGame={this.clearGame}
         />
       </div>
     );
