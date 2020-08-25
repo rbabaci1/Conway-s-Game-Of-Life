@@ -37,14 +37,9 @@ class App extends Component {
     this.setState({ fullGrid: gridCopy });
   };
 
-  playGame = () => {
-    clearInterval(this.intervalId);
-    this.intervalId = setInterval(this.play, this.speed);
-  };
-
   play = () => {
-    let gridCopy = [...this.state.fullGrid];
     let grid = this.state.fullGrid;
+    let gridCopy = [...this.state.fullGrid];
     /*
       1- For i to be a valid index, must be bigger than 0 smaller than rows - 1
       2- For j to be a valid index, must be bigger than 0 smaller than columns - 1
@@ -89,15 +84,25 @@ class App extends Component {
     });
   };
 
+  playGame = () => {
+    clearInterval(this.intervalId);
+    this.intervalId = setInterval(this.play, this.speed);
+  };
+
+  pauseGame = () => {
+    clearInterval(this.intervalId);
+  };
+
   componentDidMount() {
     this.generateCells();
+    // this.playGame();
   }
 
   render() {
     return (
       <div className="App">
         <h1>Game Of Life!</h1>
-        <h2>Generations: {this.generation}</h2>
+        <h2>Generations: {this.state.generation}</h2>
 
         <Grid
           fullGrid={this.state.fullGrid}
@@ -105,6 +110,15 @@ class App extends Component {
           columns={this.columns}
           selectCell={this.selectCell}
         />
+
+        {/* <Commands 
+          fast={this.fast}
+          slow={this.slow}
+          generateCells={this.generateCells}
+          playGame={this.playGame}
+          pauseGame={this.pauseGame}
+          clearGame={this.clear}
+        /> */}
       </div>
     );
   }
