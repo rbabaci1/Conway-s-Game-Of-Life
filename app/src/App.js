@@ -8,7 +8,7 @@ import "./App.scss";
 class App extends Component {
   constructor() {
     super();
-    this.speed = 500;
+    this.speed = 100;
     this.rows = 30;
     this.columns = 50;
 
@@ -23,7 +23,7 @@ class App extends Component {
   };
 
   generateCells = () => {
-    let gridCopy = [...this.state.fullGrid];
+    let gridCopy = this.state.fullGrid.map(r => r.slice());
     for (let i = 0; i < this.rows; i++) {
       for (let j = 0; j < this.columns; j++) {
         if (Math.floor(Math.random() * 10) === 1) {
@@ -35,12 +35,13 @@ class App extends Component {
   };
 
   play = () => {
-    let grid = this.state.fullGrid;
-    let gridCopy = [...this.state.fullGrid];
     /*
       1- For i to be a valid index, must be bigger than 0 smaller than rows - 1
       2- For j to be a valid index, must be bigger than 0 smaller than columns - 1
     */
+
+    let grid = this.state.fullGrid;
+    let gridCopy = this.state.fullGrid.map(r => r.slice());
 
     for (let i = 0; i < this.rows; i++) {
       for (let j = 0; j < this.columns; j++) {
@@ -96,7 +97,7 @@ class App extends Component {
   };
 
   fast = () => {
-    this.speed = 500;
+    this.speed = 100;
     this.playGame();
   };
 

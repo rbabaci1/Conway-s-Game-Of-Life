@@ -7,7 +7,7 @@ export default function Cell({ cellClass, cellId, row, col, selectCell }) {
     <div
       className={cellClass}
       id={cellId}
-      onClick={e => selectCell(row, col)}
+      onClick={() => selectCell(row, col)}
     ></div>
   );
 }

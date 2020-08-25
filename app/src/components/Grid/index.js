@@ -10,14 +10,12 @@ export default function Grid({ fullGrid, rows, columns, selectCell }) {
 
   for (let i = 0; i < rows; i++) {
     for (let j = 0; j < columns; j++) {
-      let cellId = i + "-" + j;
-
       cellClass = fullGrid[i][j] ? "cell alive" : "cell dead";
       rowsList.push(
         <Cell
           cellClass={cellClass}
-          cellId={cellId}
-          key={cellId}
+          cellId={`${i}_${j}`}
+          key={`${i}_${j}`}
           row={i}
           col={j}
           selectCell={selectCell}
