@@ -94,11 +94,6 @@ class App extends Component {
     clearInterval(this.intervalId);
   };
 
-  componentDidMount() {
-    this.generateCells();
-    // this.playGame();
-  }
-
   render() {
     return (
       <div className="App">
