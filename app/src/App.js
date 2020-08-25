@@ -1,7 +1,8 @@
-import Grid from "./components/Grid/index";
-import "./App.scss";
-
 import React, { Component } from "react";
+
+import Grid from "./components/Grid/index";
+import Commands from "./components/Commands";
+import "./App.scss";
 
 class App extends Component {
   constructor() {
@@ -111,14 +112,15 @@ class App extends Component {
           selectCell={this.selectCell}
         />
 
-        {/* <Commands 
+        <Commands
           fast={this.fast}
           slow={this.slow}
+          gridSize={this.gridSize}
           generateCells={this.generateCells}
           playGame={this.playGame}
           pauseGame={this.pauseGame}
           clearGame={this.clear}
-        /> */}
+        />
       </div>
     );
   }
