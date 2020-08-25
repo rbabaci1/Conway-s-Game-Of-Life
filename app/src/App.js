@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import Grid from "./components/Grid";
 import "./App.scss";
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
     <div className="App">
       <h1>Game Of Life!</h1>
       <h2>Generations: {generation}</h2>
-      {/* <Grid /> */}
+      <Grid />
     </div>
   );
 }
