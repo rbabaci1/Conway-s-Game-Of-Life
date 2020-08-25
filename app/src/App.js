@@ -8,7 +8,7 @@ function App() {
   let rows = 30;
   let columns = 50;
 
-  const selectCell = () => {};
+  const selectCell = (row, col) => {};
 
   const [generation, setGeneration] = useState(0);
   const [fullGrid, setFullGrid] = useState(

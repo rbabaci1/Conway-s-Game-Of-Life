@@ -1,5 +1,6 @@
 import React from "react";
 
+import Cell from "../Cell";
 import "./grid.scss";
 
 export default function Grid({ fullGrid, rows, columns, selectCell }) {
