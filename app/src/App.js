@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Grid from "./components/Grid/index";
 import "./App.scss";
@@ -22,17 +22,21 @@ function App() {
     setFullGrid(gridCopy);
   };
 
-  const generate = () => {
+  const generateCells = () => {
     let gridCopy = [...fullGrid];
     for (let i = 0; i < rows; i++) {
       for (let j = 0; j < columns; j++) {
-        if (Math.floor(Math.random() * 3 === 1)) {
+        if (Math.floor(Math.random() * 5) === 1) {
           gridCopy[i][j] = true;
         }
       }
     }
     setFullGrid(gridCopy);
   };
+
+  useEffect(() => {
+    generateCells();
+  }, []);
 
   return (
     <div className="App">

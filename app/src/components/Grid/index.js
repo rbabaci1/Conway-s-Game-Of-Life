@@ -17,6 +17,7 @@ export default function Grid({ fullGrid, rows, columns, selectCell }) {
         <Cell
           cellClass={cellClass}
           cellId={cellId}
+          key={cellId}
           row={i}
           col={j}
           selectCell={selectCell}
