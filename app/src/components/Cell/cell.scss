@@ -5,6 +5,10 @@
   height: 15px;
   margin-left: -1px;
   margin-bottom: -1px;
+
+  &:hover {
+    background-color: greenyellow;
+  }
 }
 
 .alive {
