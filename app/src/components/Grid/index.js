@@ -3,29 +3,28 @@ import React from "react";
 import Cell from "../Cell";
 import "./grid.scss";
 
-export default function Grid({ fullGrid, rows, columns, selectCell }) {
-  const width = columns * 16;
-  let rowsList = [];
+export default function Grid({ fullGrid, columns, selectCell }) {
   let cellClass = "";
 
-  for (let i = 0; i < rows; i++) {
-    for (let j = 0; j < columns; j++) {
-      cellClass = fullGrid[i][j] ? "cell alive" : "cell dead";
-      rowsList.push(
+  let rowsList = fullGrid.map((row, rowIndex) =>
+    row.map((col, colIndex) => {
+      cellClass = fullGrid[rowIndex][colIndex] ? "cell alive" : "cell dead";
+
+      return (
         <Cell
           cellClass={cellClass}
-          cellId={`${i}_${j}`}
-          key={`${i}_${j}`}
-          row={i}
-          col={j}
+          cellId={`${rowIndex}_${colIndex}`}
+          key={`${rowIndex}_${colIndex}`}
+          row={rowIndex}
+          col={colIndex}
           selectCell={selectCell}
         />
       );
-    }
-  }
+    })
+  );
 
   return (
-    <div className="grid-container" style={{ width: width }}>
+    <div className="grid-container" style={{ width: columns * 16 }}>
       {rowsList}
     </div>
   );

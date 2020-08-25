@@ -119,7 +119,6 @@ class App extends Component {
 
         <Grid
           fullGrid={this.state.fullGrid}
-          rows={this.rows}
           columns={this.columns}
           selectCell={this.selectCell}
         />
