@@ -1,2 +1,15 @@
-.cell-container {
+.cell {
+  display: inline-block;
+  border: 1px solid rgb(165, 164, 164);
+  width: 20px;
+  height: 20px;
+  margin-left: -1px;
+  margin-bottom: -1px;
+}
+
+.alive {
+  background-color: greenyellow;
+}
+.dead {
+  background-color: rgb(231, 231, 231);
 }

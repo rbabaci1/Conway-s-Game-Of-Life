@@ -4,7 +4,7 @@ import Cell from "../Cell";
 import "./grid.scss";
 
 export default function Grid({ fullGrid, rows, columns, selectCell }) {
-  const width = columns * 14;
+  const width = columns * 18;
   let rowsList = [];
   let cellClass = "";
 
