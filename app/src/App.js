@@ -4,18 +4,23 @@ import Grid from "./components/Grid/index";
 import "./App.scss";
 
 function App() {
-  let speed = 100;
-  let rows = 30;
-  let columns = 50;
-
-  const selectCell = (row, col) => {};
-
   const [generation, setGeneration] = useState(0);
   const [fullGrid, setFullGrid] = useState(
     Array(rows)
       .fill()
       .map(() => Array(columns).fill(false))
   );
+
+  let speed = 100;
+  let rows = 30;
+  let columns = 50;
+
+  const selectCell = (row, col) => {
+    let clonedGrid = [...fullGrid];
+    clonedGrid[row][col] = !clonedGrid[row][col];
+
+    setFullGrid(clonedGrid);
+  };
 
   return (
     <div className="App">
