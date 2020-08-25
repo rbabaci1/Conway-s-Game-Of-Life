@@ -8,6 +8,8 @@ function App() {
   let rows = 30;
   let columns = 50;
 
+  const selectCell = () => {};
+
   const [generation, setGeneration] = useState(0);
   const [fullGrid, setFullGrid] = useState(
     Array(rows)
@@ -20,7 +22,12 @@ function App() {
       <h1>Game Of Life!</h1>
       <h2>Generations: {generation}</h2>
 
-      <Grid fullGrid={fullGrid} rows={rows} columns={columns} />
+      <Grid
+        fullGrid={fullGrid}
+        rows={rows}
+        columns={columns}
+        selectCell={selectCell}
+      />
     </div>
   );
 }
