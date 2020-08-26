@@ -115,10 +115,11 @@ class App extends Component {
     return (
       <div className="App">
         <div className="bg-img" />
-        <div className="main">
-          <h1>Conway's Game Of Life</h1>
-          <InfoModal />
 
+        <h1>Conway's Game Of Life</h1>
+        <InfoModal />
+
+        <div className="main">
           <h2>Generations: {this.state.generation}</h2>
 
           <Grid
