@@ -2,7 +2,7 @@ import React from "react";
 import SkyLight from "react-skylight";
 
 import InfoIcon from "../InfoIcon";
-class Example extends React.Component {
+class InfoModal extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -87,6 +87,4 @@ class Example extends React.Component {
   }
 }
 
-Example.displayName = "Example";
-
-export default Example;
+export default InfoModal;

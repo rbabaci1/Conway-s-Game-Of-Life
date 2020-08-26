@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 import "./commands.scss";
 
+import Button from "@material-ui/core/Button";
+
 export default function Commands(commands) {
   const [value, setValue] = useState("50_30");
   const [running, setRunning] = useState(false);
@@ -14,32 +16,37 @@ export default function Commands(commands) {
 
   return (
     <div className="commands">
-      <button
+      <Button
+        variant="contained"
         onClick={() => {
           running ? commands.pauseGame() : commands.startGame();
           setRunning(!running);
         }}
       >
         {running ? "Pause" : "Start"}
-      </button>
+      </Button>
 
-      <button
+      <Button
+        variant="contained"
         onClick={() => {
           commands.clearGame();
           setRunning(false);
         }}
       >
         Clear
-      </button>
-      <button
+      </Button>
+      <Button
+        variant="contained"
         onClick={() => {
           commands.generateCells();
           setRunning(true);
         }}
       >
         Random
-      </button>
-      <button onClick={commands.gridSize}>Size</button>
+      </Button>
+      <Button variant="contained" onClick={commands.gridSize}>
+        Size
+      </Button>
 
       <select value={value} onChange={handleChange}>
         <option value="20_10">20x10</option>
@@ -47,8 +54,12 @@ export default function Commands(commands) {
         <option value="70_50">70x50</option>
       </select>
 
-      <button onClick={commands.slow}>Slow</button>
-      <button onClick={commands.fast}>Fast</button>
+      <Button variant="contained" onClick={commands.slow}>
+        Slow
+      </Button>
+      <Button variant="contained" onClick={commands.fast}>
+        Fast
+      </Button>
     </div>
   );
 }
