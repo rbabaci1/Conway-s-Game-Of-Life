@@ -23,8 +23,22 @@ export default function Commands(commands) {
         {running ? "Pause" : "Start"}
       </button>
 
-      <button onClick={commands.clearGame}>Clear</button>
-      <button onClick={commands.generateCells}>Generate</button>
+      <button
+        onClick={() => {
+          commands.clearGame();
+          setRunning(false);
+        }}
+      >
+        Clear
+      </button>
+      <button
+        onClick={() => {
+          commands.generateCells();
+          setRunning(true);
+        }}
+      >
+        Random
+      </button>
       <button onClick={commands.gridSize}>Size</button>
 
       <select value={value} onChange={handleChange}>

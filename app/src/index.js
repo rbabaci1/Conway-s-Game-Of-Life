@@ -43,6 +43,7 @@ class App extends Component {
     }
 
     this.setState({ grid: rows });
+    this.startGame();
   };
 
   startGame = () => {
@@ -65,6 +66,7 @@ class App extends Component {
   };
 
   clearGame = () => {
+    clearInterval(this.intervalId);
     this.setState(setInitialState(this.rows, this.columns));
   };
 
