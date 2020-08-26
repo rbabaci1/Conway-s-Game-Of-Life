@@ -26,7 +26,6 @@ class Example extends React.Component {
           title="Information"
           transitionDuration={400}
           dialogStyles={styles}
-          showOverlay={true}
         >
           <p>
             The Game of Life, also known simply as Life, is a cellular automaton
@@ -37,7 +36,7 @@ class Example extends React.Component {
             how it evolves, or, for advanced players, by creating patterns with
             particular properties.
           </p>
-          <h2>Rules</h2>
+          <h2>Game Rules</h2>
           <p>
             The universe of the Game of Life is an infinite, two-dimensional
             orthogonal grid of square cells, each of which is in one of two
