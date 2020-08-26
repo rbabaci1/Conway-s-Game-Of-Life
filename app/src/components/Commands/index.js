@@ -4,6 +4,7 @@ import "./commands.scss";
 
 export default function Commands(commands) {
   const [value, setValue] = useState("50_30");
+  const [running, setRunning] = useState(false);
 
   const handleChange = e => {
     const [cols, rows] = e.target.value.split("_");
@@ -13,8 +14,15 @@ export default function Commands(commands) {
 
   return (
     <div className="commands">
-      <button onClick={commands.startGame}>Play</button>
-      <button onClick={commands.pauseGame}>Pause</button>
+      <button
+        onClick={() => {
+          running ? commands.pauseGame() : commands.startGame();
+          setRunning(!running);
+        }}
+      >
+        {running ? "Pause" : "Start"}
+      </button>
+
       <button onClick={commands.clearGame}>Clear</button>
       <button onClick={commands.generateCells}>Generate</button>
 

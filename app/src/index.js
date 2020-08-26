@@ -11,7 +11,7 @@ import "./index.scss";
 class App extends Component {
   constructor() {
     super();
-    this.speed = 100;
+    this.speed = 200;
     this.rows = 30;
     this.columns = 50;
 
@@ -51,7 +51,7 @@ class App extends Component {
   };
 
   fast = () => {
-    this.speed = 100;
+    this.speed = 200;
     this.startGame();
   };
 
