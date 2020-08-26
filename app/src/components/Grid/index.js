@@ -3,12 +3,12 @@ import React from "react";
 import Cell from "../Cell";
 import "./grid.scss";
 
-export default function Grid({ fullGrid, columns, selectCell }) {
+export default function Grid({ grid, columns, selectCell }) {
   let cellClass = "";
 
-  let rowsList = fullGrid.map((row, rowIndex) =>
+  let rowsList = grid.map((row, rowIndex) =>
     row.map((col, colIndex) => {
-      cellClass = fullGrid[rowIndex][colIndex] ? "cell alive" : "cell dead";
+      cellClass = grid[rowIndex][colIndex] ? "cell alive" : "cell dead";
 
       return (
         <Cell

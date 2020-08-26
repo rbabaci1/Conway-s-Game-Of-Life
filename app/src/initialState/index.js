@@ -1,6 +1,6 @@
 const setInitialState = (rows, cols) => {
   return {
-    fullGrid: Array(rows)
+    grid: Array(rows)
       .fill()
       .map(() => Array(cols).fill(false)),
     generation: 0,

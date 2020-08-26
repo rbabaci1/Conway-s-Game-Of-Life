@@ -19,13 +19,13 @@ class App extends Component {
   }
 
   selectCell = (row, col) => {
-    let gridCopy = helpers.cloneGrid(this.state.fullGrid);
+    let gridCopy = helpers.cloneGrid(this.state.grid);
     gridCopy[row][col] = !gridCopy[row][col];
-    this.setState({ fullGrid: gridCopy });
+    this.setState({ grid: gridCopy });
   };
 
   generateCells = () => {
-    let gridCopy = helpers.cloneGrid(this.state.fullGrid);
+    let gridCopy = helpers.cloneGrid(this.state.grid);
     for (let i = 0; i < this.rows; i++) {
       for (let j = 0; j < this.columns; j++) {
         if (Math.floor(Math.random() * 7) === 1) {
@@ -33,7 +33,7 @@ class App extends Component {
         }
       }
     }
-    this.setState({ fullGrid: gridCopy });
+    this.setState({ grid: gridCopy });
   };
 
   startGame = () => {
@@ -70,8 +70,8 @@ class App extends Component {
       1- For i to be a valid index, must be bigger than 0 smaller than rows - 1
       2- For j to be a valid index, must be bigger than 0 smaller than columns - 1
     */
-    let grid = this.state.fullGrid;
-    let gridCopy = helpers.cloneGrid(this.state.fullGrid);
+    let grid = this.state.grid;
+    let gridCopy = helpers.cloneGrid(this.state.grid);
 
     for (let i = 0; i < this.rows; i++) {
       for (let j = 0; j < this.columns; j++) {
@@ -109,7 +109,7 @@ class App extends Component {
 
     this.setState({
       generation: this.state.generation + 1,
-      fullGrid: gridCopy,
+      grid: gridCopy,
     });
   };
 
@@ -120,7 +120,7 @@ class App extends Component {
         <h2>Generations: {this.state.generation}</h2>
 
         <Grid
-          fullGrid={this.state.fullGrid}
+          grid={this.state.grid}
           columns={this.columns}
           selectCell={this.selectCell}
         />
