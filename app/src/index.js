@@ -114,26 +114,29 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Conway's Game Of Life</h1>
-        <InfoModal />
+        <div className="bg-img" />
+        <div className="main">
+          <h1>Conway's Game Of Life</h1>
+          <InfoModal />
 
-        <h2>Generations: {this.state.generation}</h2>
+          <h2>Generations: {this.state.generation}</h2>
 
-        <Grid
-          grid={this.state.grid}
-          columns={this.columns}
-          selectCell={this.selectCell}
-        />
+          <Grid
+            grid={this.state.grid}
+            columns={this.columns}
+            selectCell={this.selectCell}
+          />
 
-        <Commands
-          fast={this.fast}
-          slow={this.slow}
-          setGridSize={this.setGridSize}
-          generateCells={this.generateCells}
-          startGame={this.startGame}
-          pauseGame={this.pauseGame}
-          clearGame={this.clearGame}
-        />
+          <Commands
+            fast={this.fast}
+            slow={this.slow}
+            setGridSize={this.setGridSize}
+            generateCells={this.generateCells}
+            startGame={this.startGame}
+            pauseGame={this.pauseGame}
+            clearGame={this.clearGame}
+          />
+        </div>
       </div>
     );
   }
