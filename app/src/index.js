@@ -83,24 +83,23 @@ class App extends Component {
     let grid = this.state.grid;
     let gridCopy = helpers.cloneGrid(this.state.grid);
 
-    for (let i = 0; i < this.rows; i++) {
-      for (let j = 0; j < this.columns; j++) {
+    for (let row = 0; row < this.rows; row++) {
+      for (let col = 0; col < this.columns; col++) {
         let neighbors = 0;
 
         this.operations.forEach(([x, y]) => {
-          const newI = i + x;
-          const newJ = j + y;
-
-          if (helpers.cellExists(this.rows, this.columns, newI, newJ)) {
-            neighbors += grid[newI][newJ];
+          // for each operation, first check if the neighbor cell exists and
+          // add its value to neighbors, if it's alive 1 will be added otherwise 0.
+          if (helpers.cellExists(this.rows, this.columns, row + x, col + y)) {
+            neighbors += grid[row + x][col + y];
           }
         });
 
-        if (grid[i][j] && (neighbors < 2 || neighbors > 3)) {
-          gridCopy[i][j] = 0;
+        if (grid[row][col] && (neighbors < 2 || neighbors > 3)) {
+          gridCopy[row][col] = 0;
         }
         // if a cell is dead and has 3 live neighbors, it will be born
-        if (!grid[i][j] && neighbors === 3) gridCopy[i][j] = 1;
+        if (!grid[row][col] && neighbors === 3) gridCopy[row][col] = 1;
       }
     }
 
