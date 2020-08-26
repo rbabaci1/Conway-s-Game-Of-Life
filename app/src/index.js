@@ -35,15 +35,14 @@ class App extends Component {
   };
 
   generateCells = () => {
-    let gridCopy = helpers.cloneGrid(this.state.grid);
+    let rows = [];
     for (let i = 0; i < this.rows; i++) {
-      for (let j = 0; j < this.columns; j++) {
-        if (Math.floor(Math.random() * 7) === 1) {
-          gridCopy[i][j] = 1;
-        }
-      }
+      rows.push(
+        Array.from(Array(this.columns), () => (Math.random() > 0.7 ? 1 : 0))
+      );
     }
-    this.setState({ grid: gridCopy });
+
+    this.setState({ grid: rows });
   };
 
   startGame = () => {
