@@ -6,7 +6,7 @@ import Grid from "./components/Grid/index";
 import Commands from "./components/Commands";
 import setInitialState from "./initialState";
 import helpers from "./helpers";
-import infoIcon from "./images/infoIcon.svg";
+import InfoIcon from "./components/InfoIcon";
 import "./index.scss";
 
 class App extends Component {
@@ -115,7 +115,8 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Conway's Game Of Life</h1>
-        <img src={infoIcon} className="info-icon" />
+        <InfoIcon />
+
         <h2>Generations: {this.state.generation}</h2>
 
         <Grid

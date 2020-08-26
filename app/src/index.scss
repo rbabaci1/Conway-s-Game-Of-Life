@@ -25,11 +25,24 @@ h1 {
   letter-spacing: 1px;
 }
 
+h2 {
+  text-align: center;
+}
+
 .App {
   max-width: 1200px;
   margin: auto;
   color: #fff;
 
-  .info-icon {
+  svg {
+    float: right;
+    cursor: pointer;
+
+    path {
+      transition-duration: 0.4s;
+      &:hover {
+        fill: rgb(151, 149, 149);
+      }
+    }
   }
 }
