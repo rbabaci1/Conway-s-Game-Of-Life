@@ -7,6 +7,7 @@ import Commands from "./components/Commands";
 import setInitialState from "./initialState";
 import helpers from "./helpers";
 import InfoIcon from "./components/InfoIcon";
+import Example from "./components/Modal";
 import "./index.scss";
 
 class App extends Component {
@@ -115,7 +116,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Conway's Game Of Life</h1>
-        <InfoIcon />
+        <Example />
 
         <h2>Generations: {this.state.generation}</h2>
 

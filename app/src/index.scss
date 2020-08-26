@@ -35,7 +35,6 @@ h2 {
   color: #fff;
 
   svg {
-    float: right;
     cursor: pointer;
 
     path {
@@ -43,6 +42,15 @@ h2 {
       &:hover {
         fill: rgb(151, 149, 149);
       }
+    }
+  }
+
+  .modal {
+    button {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      float: right;
     }
   }
 }
