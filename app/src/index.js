@@ -5,6 +5,7 @@ import * as serviceWorker from "./serviceWorker";
 import Grid from "./components/Grid/index";
 import Commands from "./components/Commands";
 import setInitialState from "./initialState";
+import helpers from "./helpers";
 import "./index.scss";
 
 class App extends Component {
@@ -18,14 +19,14 @@ class App extends Component {
   }
 
   selectCell = (row, col) => {
-    let gridCopy = [...this.state.fullGrid];
+    let gridCopy = helpers.cloneGrid(this.state.fullGrid);
     gridCopy[row][col] = !gridCopy[row][col];
 
     this.setState({ fullGrid: gridCopy });
   };
 
   generateCells = () => {
-    let gridCopy = this.state.fullGrid.map(r => r.slice());
+    let gridCopy = helpers.cloneGrid(this.state.fullGrid);
     for (let i = 0; i < this.rows; i++) {
       for (let j = 0; j < this.columns; j++) {
         if (Math.floor(Math.random() * 10) === 1) {
