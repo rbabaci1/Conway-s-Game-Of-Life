@@ -1,18 +1,19 @@
 .cell {
   display: inline-block;
-  border: 1px solid rgb(155, 153, 153);
-  width: 15px;
-  height: 15px;
+  border: 1px solid rgb(167, 165, 165);
+  width: 19px;
+  height: 19px;
   margin-left: -1px;
   margin-bottom: -1px;
+  border-radius: 3px;
 
   &:hover {
-    background-color: greenyellow;
+    background-color: rgb(252, 169, 180);
   }
 }
 
 .alive {
-  background-color: rgb(8, 156, 8);
+  background-color: rgb(94, 23, 50);
 }
 .dead {
   background-color: rgb(231, 231, 231);
