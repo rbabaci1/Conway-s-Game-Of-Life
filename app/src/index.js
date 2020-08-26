@@ -36,12 +36,40 @@ class App extends Component {
     this.setState({ fullGrid: gridCopy });
   };
 
+  startGame = () => {
+    clearInterval(this.intervalId);
+    this.intervalId = setInterval(this.play, this.speed);
+  };
+
+  pauseGame = () => {
+    clearInterval(this.intervalId);
+  };
+
+  slow = () => {
+    this.speed = 1500;
+    this.startGame();
+  };
+
+  fast = () => {
+    this.speed = 100;
+    this.startGame();
+  };
+
+  clearGame = () => {
+    this.setState(setInitialState(this.rows, this.columns));
+  };
+
+  setGridSize = (cols, rows) => {
+    this.rows = rows;
+    this.columns = cols;
+    this.clearGame();
+  };
+
   play = () => {
     /*
       1- For i to be a valid index, must be bigger than 0 smaller than rows - 1
       2- For j to be a valid index, must be bigger than 0 smaller than columns - 1
     */
-
     let grid = this.state.fullGrid;
     let gridCopy = helpers.cloneGrid(this.state.fullGrid);
 
@@ -83,35 +111,6 @@ class App extends Component {
       generation: this.state.generation + 1,
       fullGrid: gridCopy,
     });
-  };
-
-  startGame = () => {
-    clearInterval(this.intervalId);
-    this.intervalId = setInterval(this.play, this.speed);
-  };
-
-  // pauseGame = () => {
-  //   clearInterval(this.intervalId);
-  // };
-
-  slow = () => {
-    this.speed = 1500;
-    this.startGame();
-  };
-
-  fast = () => {
-    this.speed = 100;
-    this.startGame();
-  };
-
-  clearGame = () => {
-    this.setState(setInitialState(this.rows, this.columns));
-  };
-
-  setGridSize = (cols, rows) => {
-    this.rows = rows;
-    this.columns = cols;
-    this.clearGame();
   };
 
   render() {

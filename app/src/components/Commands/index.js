@@ -13,7 +13,7 @@ export default function Commands(commands) {
 
   return (
     <div className="commands">
-      <button onClick={commands.playGame}>Play</button>
+      <button onClick={commands.startGame}>Play</button>
       <button onClick={commands.pauseGame}>Pause</button>
       <button onClick={commands.clearGame}>Clear</button>
       <button onClick={commands.generateCells}>Generate</button>
