@@ -14,6 +14,16 @@ class App extends Component {
     this.speed = 200;
     this.rows = 30;
     this.columns = 50;
+    this.operations = [
+      [0, 1],
+      [0, -1],
+      [1, -1],
+      [-1, 1],
+      [1, 1],
+      [-1, -1],
+      [1, 0],
+      [-1, 0],
+    ];
 
     this.state = setInitialState(this.rows, this.columns);
   }
@@ -29,7 +39,7 @@ class App extends Component {
     for (let i = 0; i < this.rows; i++) {
       for (let j = 0; j < this.columns; j++) {
         if (Math.floor(Math.random() * 7) === 1) {
-          gridCopy[i][j] = true;
+          gridCopy[i][j] = 1;
         }
       }
     }
@@ -76,33 +86,21 @@ class App extends Component {
     for (let i = 0; i < this.rows; i++) {
       for (let j = 0; j < this.columns; j++) {
         let neighbors = 0;
-        // if top neighbor is alive and i is valid
-        if (i > 0) if (grid[i - 1][j]) neighbors++;
-        // if top left neighbor is alive and i & j are valid
-        if (i > 0 && j > 0) if (grid[i - 1][j - 1]) neighbors++;
-        // if top right neighbor is alive and i & j are valid
-        if (i > 0 && j < this.columns - 1) {
-          if (grid[i - 1][j + 1]) neighbors++;
-        }
-        // if right neighbor is alive and and i & j are valid
-        if (j < this.columns - 1) if (grid[i][j + 1]) neighbors++;
-        // if left neighbor is alive and and  j is valid
-        if (j > 0) if (grid[i][j - 1]) neighbors++;
-        // if bottom neighbor is alive and i is valid
-        if (i < this.rows - 1) if (grid[i + 1][j]) neighbors++;
-        // if bottom left neighbor is alive and i & j are valid
-        if (i < this.rows - 1 && j > 0) if (grid[i + 1][j - 1]) neighbors++;
-        // if bottom right neighbor is alive and i & j are valid
-        if (i < this.rows - 1 && this.columns - 1) {
-          if (grid[i + 1][j + 1]) neighbors++;
-        }
 
-        // if a cell is alive and has less than 2 or more than 3 live neighbors, it will die
+        this.operations.forEach(([x, y]) => {
+          const newI = i + x;
+          const newJ = j + y;
+
+          if (helpers.cellExists(this.rows, this.columns, newI, newJ)) {
+            neighbors += grid[newI][newJ];
+          }
+        });
+
         if (grid[i][j] && (neighbors < 2 || neighbors > 3)) {
-          gridCopy[i][j] = false;
+          gridCopy[i][j] = 0;
         }
         // if a cell is dead and has 3 live neighbors, it will be born
-        if (!grid[i][j] && neighbors === 3) gridCopy[i][j] = true;
+        if (!grid[i][j] && neighbors === 3) gridCopy[i][j] = 1;
       }
     }
 
