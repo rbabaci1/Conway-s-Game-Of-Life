@@ -21,7 +21,6 @@ class App extends Component {
   selectCell = (row, col) => {
     let gridCopy = helpers.cloneGrid(this.state.fullGrid);
     gridCopy[row][col] = !gridCopy[row][col];
-
     this.setState({ fullGrid: gridCopy });
   };
 
@@ -29,7 +28,7 @@ class App extends Component {
     let gridCopy = helpers.cloneGrid(this.state.fullGrid);
     for (let i = 0; i < this.rows; i++) {
       for (let j = 0; j < this.columns; j++) {
-        if (Math.floor(Math.random() * 10) === 1) {
+        if (Math.floor(Math.random() * 7) === 1) {
           gridCopy[i][j] = true;
         }
       }
@@ -44,38 +43,39 @@ class App extends Component {
     */
 
     let grid = this.state.fullGrid;
-    let gridCopy = this.state.fullGrid.map(r => r.slice());
+    let gridCopy = helpers.cloneGrid(this.state.fullGrid);
 
     for (let i = 0; i < this.rows; i++) {
       for (let j = 0; j < this.columns; j++) {
-        let liveNeighbors = 0;
+        let aliveNeighbors = 0;
         // if top neighbor is alive and i is valid
-        if (i > 0) if (grid[i - 1][j]) liveNeighbors++;
+        if (i > 0) if (grid[i - 1][j]) aliveNeighbors++;
         // if top left neighbor is alive and i & j are valid
-        if (i > 0 && j > 0) if (grid[i - 1][j - 1]) liveNeighbors++;
+        if (i > 0 && j > 0) if (grid[i - 1][j - 1]) aliveNeighbors++;
         // if top right neighbor is alive and i & j are valid
         if (i > 0 && j < this.columns - 1) {
-          if (grid[i - 1][j + 1]) liveNeighbors++;
+          if (grid[i - 1][j + 1]) aliveNeighbors++;
         }
         // if right neighbor is alive and and i & j are valid
-        if (j < this.columns - 1) if (grid[i][j + 1]) liveNeighbors++;
+        if (j < this.columns - 1) if (grid[i][j + 1]) aliveNeighbors++;
         // if left neighbor is alive and and  j is valid
-        if (j > 0) if (grid[i][j - 1]) liveNeighbors++;
+        if (j > 0) if (grid[i][j - 1]) aliveNeighbors++;
         // if bottom neighbor is alive and i is valid
-        if (i < this.rows - 1) if (grid[i + 1][j]) liveNeighbors++;
+        if (i < this.rows - 1) if (grid[i + 1][j]) aliveNeighbors++;
         // if bottom left neighbor is alive and i & j are valid
-        if (i < this.rows - 1 && j > 0) if (grid[i + 1][j - 1]) liveNeighbors++;
+        if (i < this.rows - 1 && j > 0)
+          if (grid[i + 1][j - 1]) aliveNeighbors++;
         // if bottom right neighbor is alive and i & j are valid
         if (i < this.rows - 1 && this.columns - 1) {
-          if (grid[i + 1][j + 1]) liveNeighbors++;
+          if (grid[i + 1][j + 1]) aliveNeighbors++;
         }
 
         // if a cell is alive and has less than 2 or more than 3 live neighbors, it will die
-        if (grid[i][j] && (liveNeighbors < 2 || liveNeighbors > 3)) {
+        if (grid[i][j] && (aliveNeighbors < 2 || aliveNeighbors > 3)) {
           gridCopy[i][j] = false;
         }
         // if a cell is dead and has 3 live neighbors, it will be born
-        if (!grid[i][j] && liveNeighbors === 3) gridCopy[i][j] = true;
+        if (!grid[i][j] && aliveNeighbors === 3) gridCopy[i][j] = true;
       }
     }
 
