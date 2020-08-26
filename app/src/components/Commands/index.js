@@ -25,7 +25,6 @@ export default function Commands(commands) {
 
       <button onClick={commands.clearGame}>Clear</button>
       <button onClick={commands.generateCells}>Generate</button>
-
       <button onClick={commands.gridSize}>Size</button>
 
       <select value={value} onChange={handleChange}>
