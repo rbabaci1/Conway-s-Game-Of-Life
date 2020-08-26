@@ -85,23 +85,23 @@ class App extends Component {
     });
   };
 
-  playGame = () => {
+  startGame = () => {
     clearInterval(this.intervalId);
     this.intervalId = setInterval(this.play, this.speed);
   };
 
-  pauseGame = () => {
-    clearInterval(this.intervalId);
-  };
+  // pauseGame = () => {
+  //   clearInterval(this.intervalId);
+  // };
 
   slow = () => {
     this.speed = 1500;
-    this.playGame();
+    this.startGame();
   };
 
   fast = () => {
     this.speed = 100;
-    this.playGame();
+    this.startGame();
   };
 
   clearGame = () => {
@@ -131,7 +131,7 @@ class App extends Component {
           slow={this.slow}
           setGridSize={this.setGridSize}
           generateCells={this.generateCells}
-          playGame={this.playGame}
+          startGame={this.startGame}
           pauseGame={this.pauseGame}
           clearGame={this.clearGame}
         />

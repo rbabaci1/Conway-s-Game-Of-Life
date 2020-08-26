@@ -2,23 +2,23 @@ import React, { useState } from "react";
 
 import "./commands.scss";
 
-export default function Commands(features) {
+export default function Commands(commands) {
   const [value, setValue] = useState("50_30");
 
   const handleChange = e => {
     const [cols, rows] = e.target.value.split("_");
-    features.setGridSize(Number(cols), Number(rows));
+    commands.setGridSize(Number(cols), Number(rows));
     setValue(e.target.value);
   };
 
   return (
     <div className="commands">
-      <button onClick={features.playGame}>Play</button>
-      <button onClick={features.pauseGame}>Pause</button>
-      <button onClick={features.clearGame}>Clear</button>
-      <button onClick={features.generateCells}>Generate</button>
+      <button onClick={commands.playGame}>Play</button>
+      <button onClick={commands.pauseGame}>Pause</button>
+      <button onClick={commands.clearGame}>Clear</button>
+      <button onClick={commands.generateCells}>Generate</button>
 
-      <button onClick={features.gridSize}>Size</button>
+      <button onClick={commands.gridSize}>Size</button>
 
       <select value={value} onChange={handleChange}>
         <option value="20_10">20x10</option>
@@ -26,8 +26,8 @@ export default function Commands(features) {
         <option value="70_50">70x50</option>
       </select>
 
-      <button onClick={features.slow}>Slow</button>
-      <button onClick={features.fast}>Fast</button>
+      <button onClick={commands.slow}>Slow</button>
+      <button onClick={commands.fast}>Fast</button>
     </div>
   );
 }
