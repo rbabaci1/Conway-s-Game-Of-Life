@@ -71,7 +71,6 @@ class App extends Component {
       cell.style.color = "transparent";
       cell.textContent = "1";
     }
-    this.updateSpeed(100, false);
   };
 
   showGenerations = () => {
