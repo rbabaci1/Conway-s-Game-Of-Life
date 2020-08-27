@@ -14,7 +14,7 @@ export default function PatternsMenu({ generatePattern }) {
     <div className="select-menu">
       <SelectMenu
         handleChange={handleChange}
-        values={["BLINKER", "TOAD"]}
+        values={["BLINKER", "TOAD", "BEACON"]}
         value={pattern}
         name="PATTERNS EXAMPLES"
         width="200px"
