@@ -14,14 +14,21 @@ const updateCellTextContent = (row, col, generation) => {
 };
 
 const patternsGenerator = (grid, patternName, rows, cols) => {
+  let x = Math.ceil(rows / 2);
+  let y = Math.ceil(cols / 2);
   switch (patternName) {
     case "BLINKER":
-      let x = Math.ceil(rows / 2);
-      let y = Math.ceil(cols / 2);
-
       grid[x][y] = 1;
       grid[x][y - 1] = 1;
       grid[x][y + 1] = 1;
+      break;
+    case "TOAD":
+      grid[x][y] = 1;
+      grid[x][y + 1] = 1;
+      grid[x][y + 2] = 1;
+      grid[x - 1][y + 1] = 1;
+      grid[x - 1][y + 2] = 1;
+      grid[x - 1][y + 3] = 1;
       break;
   }
   return grid;
