@@ -10,7 +10,7 @@ const cellExists = (rows, cols, rowIndex, colIndex) => {
 };
 
 const updateCellTextContent = (row, col, generation) => {
-  document.getElementById(`${row}_${col}`).textContent = String(generation);
+  document.getElementById(`${row}_${col}`).textContent = String(generation + 1);
 };
 
 export default { cloneGrid, cellExists, updateCellTextContent };
