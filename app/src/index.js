@@ -56,14 +56,11 @@ class App extends Component {
     clearInterval(this.intervalId);
   };
 
-  slow = () => {
-    this.speed = 1500;
-    this.startGame();
-  };
-
-  fast = () => {
-    this.speed = 200;
-    this.startGame();
+  updateSpeed = (value, gameIsRunning) => {
+    this.speed = value;
+    if (gameIsRunning) {
+      this.startGame();
+    }
   };
 
   clearGame = () => {
@@ -74,6 +71,7 @@ class App extends Component {
       cell.style.color = "transparent";
       cell.textContent = "1";
     }
+    this.updateSpeed(100, false);
   };
 
   showGenerations = () => {
@@ -160,8 +158,7 @@ class App extends Component {
           />
 
           <Commands
-            fast={this.fast}
-            slow={this.slow}
+            updateSpeed={this.updateSpeed}
             setGridSize={this.setGridSize}
             generateCells={this.generateCells}
             startGame={this.startGame}

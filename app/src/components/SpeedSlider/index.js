@@ -61,18 +61,21 @@ const PrettoSlider = withStyles({
   },
 })(Slider);
 
-export default function CustomizedSlider() {
+export default function SpeedSlider({ updateSpeed, running }) {
   const classes = useStyles();
   const [value, setValue] = useState(100);
 
   const handleChange = (e, value) => {
     setValue(value);
+    updateSpeed(value, running);
   };
 
   return (
     <div className={classes.root}>
       <div className={classes.margin} />
-      <Typography gutterBottom>Speed /ms</Typography>
+      <Typography gutterBottom>
+        Execution Speed <span id="speed-num">{value}ms</span>
+      </Typography>
       <PrettoSlider
         valueLabelDisplay="auto"
         aria-label="pretto slider"
