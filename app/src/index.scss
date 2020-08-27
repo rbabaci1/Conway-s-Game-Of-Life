@@ -5,12 +5,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  // background-image: url("https://cdn.pixabay.com/photo/2017/03/29/08/09/the-speaker-grill-2184439_1280.jpg");
-  // background-size: cover;
-  // background-position: center;
-  // background-repeat: no-repeat;
-  // height: 100vh;
 }
 
 code {
@@ -26,7 +20,7 @@ h1 {
 }
 
 h2 {
-  text-align: center;
+  overflow: hidden;
 }
 
 .App {

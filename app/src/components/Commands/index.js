@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
 
 import Button from "../Button";
 import "./commands.scss";
@@ -39,13 +43,19 @@ export default function Commands(commands) {
         text="Random"
       />
 
-      <Button onClick={commands.gridSize} text="Size" />
-
-      <select value={value} onChange={handleChange}>
-        <option value="20_10">20x10</option>
-        <option value="50_30">50x30</option>
-        <option value="70_50">70x50</option>
-      </select>
+      <FormControl className="select-form">
+        <InputLabel id="demo-simple-select-label">SIZE</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={value}
+          onChange={handleChange}
+        >
+          <MenuItem value="20_10">20x10</MenuItem>
+          <MenuItem value="50_30">50x30</MenuItem>
+          <MenuItem value="70_50">70x50</MenuItem>
+        </Select>
+      </FormControl>
 
       <Button onClick={commands.slow} text="Slow" />
       <Button onClick={commands.fast} text="Fast" />

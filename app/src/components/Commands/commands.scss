@@ -9,4 +9,16 @@
       background-color: rgb(46, 45, 45);
     }
   }
+
+  .select-form {
+    background-color: #e0e0e0;
+    width: 100px;
+    padding: 0 5px 5px 5px;
+    border-radius: 5px;
+
+    label {
+      font-size: 18px;
+      padding: 3px 0 0 5px;
+    }
+  }
 }
