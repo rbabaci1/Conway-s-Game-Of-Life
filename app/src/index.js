@@ -140,8 +140,8 @@ class App extends Component {
     return (
       <div className="App">
         <div className="bg-img" />
-
         <h1>Conway's Game Of Life</h1>
+
         <InfoModal />
 
         <div className="generation-count">
