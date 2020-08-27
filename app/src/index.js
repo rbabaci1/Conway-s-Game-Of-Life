@@ -6,7 +6,7 @@ import Grid from "./components/Grid/index";
 import Commands from "./components/Commands";
 import setInitialState from "./initialState";
 import helpers from "./helpers";
-import InfoModal from "./components/Modal";
+import InfoModal from "./components/InfoModal";
 import "./index.scss";
 
 class App extends Component {
