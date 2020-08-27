@@ -69,6 +69,10 @@ class App extends Component {
   clearGame = () => {
     clearInterval(this.intervalId);
     this.setState(setInitialState(this.rows, this.columns));
+
+    for (let cell of document.getElementsByClassName("cell")) {
+      cell.textContent = "";
+    }
   };
 
   setGridSize = (cols, rows) => {
@@ -99,9 +103,19 @@ class App extends Component {
 
         if (grid[row][col] && (neighbors < 2 || neighbors > 3)) {
           gridCopy[row][col] = 0;
+
+          let cell = document.getElementById(`${row}_${col}`);
+          // let genNum = Number(cell.textContent) + 1;
+          cell.textContent = String(this.state.generation);
         }
         // if a cell is dead and has 3 live neighbors, it will be born
-        if (!grid[row][col] && neighbors === 3) gridCopy[row][col] = 1;
+        if (!grid[row][col] && neighbors === 3) {
+          gridCopy[row][col] = 1;
+
+          // let cell = document.getElementById(`${row}_${col}`);
+          // let genNum = Number(cell.textContent) + 1;
+          // cell.textContent = String(genNum);
+        }
       }
     }
 

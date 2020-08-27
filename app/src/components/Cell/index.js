@@ -8,6 +8,6 @@ export default function Cell({ cellClass, cellId, row, col, selectCell }) {
       className={cellClass}
       id={cellId}
       onClick={() => selectCell(row, col)}
-    ></div>
+    />
   );
 }
