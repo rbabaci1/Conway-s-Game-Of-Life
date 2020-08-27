@@ -58,8 +58,8 @@ export default function Commands(commands) {
         </Select>
       </FormControl>
 
-      <Button onClick={commands.slow} text="Slow" />
-      <Button onClick={commands.fast} text="Fast" />
+      {/* <Button onClick={commands.slow} text="Slow" />
+      <Button onClick={commands.fast} text="Fast" /> */}
       <Button
         onClick={() => {
           if (!running) {
@@ -68,6 +68,8 @@ export default function Commands(commands) {
         }}
         text="Cell Generations"
       />
+
+      <SpeedSlider />
     </div>
   );
 }
