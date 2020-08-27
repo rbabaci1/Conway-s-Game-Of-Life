@@ -71,7 +71,7 @@ class App extends Component {
     this.setState(setInitialState(this.rows, this.columns));
 
     for (let cell of document.getElementsByClassName("cell")) {
-      cell.textContent = "";
+      cell.style.color = "transparent";
     }
   };
 
@@ -87,7 +87,7 @@ class App extends Component {
         cell.style.color = "transparent";
       }
     });
-    this.setState({ generationDisplayed: true });
+    this.setState({ generationDisplayed: !this.state.generationDisplayed });
   };
 
   setGridSize = (cols, rows) => {
