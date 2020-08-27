@@ -17,6 +17,7 @@ h1 {
   margin: 0;
   text-align: center;
   letter-spacing: 1px;
+  font-size: 42px;
 }
 
 h2 {
@@ -25,7 +26,7 @@ h2 {
 
 .App {
   .bg-img {
-    background-image: url("https://cdn.pixabay.com/photo/2018/02/27/14/58/crystal-grid-3185671_1280.png");
+    background-image: url("https://cdn.pixabay.com/photo/2018/01/28/18/35/tunnel-3114374__480.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -33,7 +34,7 @@ h2 {
     height: 100%;
     position: absolute;
     z-index: -99;
-    filter: blur(4px);
+    filter: blur(2px);
   }
   color: #fff;
 
