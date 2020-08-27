@@ -119,9 +119,12 @@ class App extends Component {
         <h1>Conway's Game Of Life</h1>
         <InfoModal />
 
-        <div className="main">
-          <h2>Generations: {this.state.generation}</h2>
+        <div className="generation-count">
+          GENERATIONS
+          <h2>{this.state.generation}</h2>
+        </div>
 
+        <div className="main">
           <Grid
             grid={this.state.grid}
             columns={this.columns}
