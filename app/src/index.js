@@ -118,7 +118,6 @@ class App extends Component {
 
         if (grid[row][col] && (neighbors < 2 || neighbors > 3)) {
           gridCopy[row][col] = 0;
-
           helpers.updateCellTextContent(row, col, this.state.generation);
         }
         // if a cell is dead and has 3 live neighbors, it will be born
