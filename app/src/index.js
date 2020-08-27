@@ -99,14 +99,14 @@ class App extends Component {
 
   generatePattern = patternName => {
     let gridCopy = helpers.cloneGrid(this.state.grid);
-    let x = Math.ceil(this.rows / 2);
-    let y = Math.ceil(this.columns / 2);
+    let pattern = helpers.patternsGenerator(
+      gridCopy,
+      patternName,
+      this.rows,
+      this.columns
+    );
 
-    gridCopy[x][y] = 1;
-    gridCopy[x][y - 1] = 1;
-    gridCopy[x][y + 1] = 1;
-
-    this.setState({ grid: gridCopy, running: true });
+    this.setState({ grid: pattern, running: true });
     setTimeout(() => {
       this.startGame();
     }, 500);

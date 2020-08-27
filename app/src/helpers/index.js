@@ -13,4 +13,23 @@ const updateCellTextContent = (row, col, generation) => {
   document.getElementById(`${row}_${col}`).textContent = String(generation + 1);
 };
 
-export default { cloneGrid, cellExists, updateCellTextContent };
+const patternsGenerator = (grid, patternName, rows, cols) => {
+  switch (patternName) {
+    case "BLINKER":
+      let x = Math.ceil(rows / 2);
+      let y = Math.ceil(cols / 2);
+
+      grid[x][y] = 1;
+      grid[x][y - 1] = 1;
+      grid[x][y + 1] = 1;
+      break;
+  }
+  return grid;
+};
+
+export default {
+  cloneGrid,
+  cellExists,
+  updateCellTextContent,
+  patternsGenerator,
+};
