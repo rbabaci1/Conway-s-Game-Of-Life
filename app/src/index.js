@@ -75,6 +75,20 @@ class App extends Component {
     }
   };
 
+  showGenerations = () => {
+    for (let cell of document.getElementsByClassName("cell")) {
+      if (cell.style.color === "transparent") {
+        if (cell.classList.contains("alive")) {
+          cell.style.color = "green";
+        } else {
+          cell.style.color = "red";
+        }
+      } else {
+        cell.style.color = "transparent";
+      }
+    }
+  };
+
   setGridSize = (cols, rows) => {
     this.rows = rows;
     this.columns = cols;
@@ -104,17 +118,17 @@ class App extends Component {
         if (grid[row][col] && (neighbors < 2 || neighbors > 3)) {
           gridCopy[row][col] = 0;
 
-          let cell = document.getElementById(`${row}_${col}`);
-          // let genNum = Number(cell.textContent) + 1;
-          cell.textContent = String(this.state.generation);
+          document.getElementById(`${row}_${col}`).textContent = String(
+            this.state.generation
+          );
         }
         // if a cell is dead and has 3 live neighbors, it will be born
         if (!grid[row][col] && neighbors === 3) {
           gridCopy[row][col] = 1;
 
-          // let cell = document.getElementById(`${row}_${col}`);
-          // let genNum = Number(cell.textContent) + 1;
-          // cell.textContent = String(genNum);
+          document.getElementById(`${row}_${col}`).textContent = String(
+            this.state.generation
+          );
         }
       }
     }
@@ -153,6 +167,7 @@ class App extends Component {
             startGame={this.startGame}
             pauseGame={this.pauseGame}
             clearGame={this.clearGame}
+            showGenerations={this.showGenerations}
           />
         </div>
       </div>

@@ -59,6 +59,7 @@ export default function Commands(commands) {
 
       <Button onClick={commands.slow} text="Slow" />
       <Button onClick={commands.fast} text="Fast" />
+      <Button onClick={commands.showGenerations} text="Cell Generations" />
     </div>
   );
 }

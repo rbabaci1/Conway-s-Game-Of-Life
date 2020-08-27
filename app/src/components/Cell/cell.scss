@@ -7,7 +7,7 @@
   margin-bottom: -1px;
   border-radius: 3px;
   cursor: pointer;
-  color: rgb(51, 131, 131);
+  color: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,9 +20,7 @@
 
 .alive {
   background-color: rgb(94, 23, 50);
-  color: green;
 }
 .dead {
   background-color: rgb(231, 231, 231);
-  color: red;
 }
