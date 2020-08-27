@@ -60,6 +60,20 @@ h1 {
     }
   }
 
+  .select-menu {
+    position: absolute;
+    right: 60px;
+    top: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    select {
+      font-size: 24px;
+      padding: 10px;
+    }
+  }
+
   .generation-count {
     position: absolute;
     box-sizing: border-box;

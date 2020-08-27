@@ -7,6 +7,7 @@ import Commands from "./components/Commands";
 import setInitialState from "./initialState";
 import helpers from "./helpers";
 import InfoModal from "./components/InfoModal";
+import PatternsMenu from "./components/PatternsMenu";
 import "./index.scss";
 
 class App extends Component {
@@ -143,6 +144,7 @@ class App extends Component {
         <h1>Conway's Game Of Life</h1>
 
         <InfoModal />
+        <PatternsMenu />
 
         <div className="generation-count">
           GENERATIONS
