@@ -51,10 +51,12 @@ class App extends Component {
   startGame = () => {
     clearInterval(this.intervalId);
     this.intervalId = setInterval(this.play, this.speed);
+    this.setState({ running: true });
   };
 
   pauseGame = () => {
     clearInterval(this.intervalId);
+    this.setState({ running: false });
   };
 
   updateSpeed = (value, gameIsRunning) => {
@@ -93,6 +95,21 @@ class App extends Component {
     this.rows = rows;
     this.columns = cols;
     this.clearGame();
+  };
+
+  generatePattern = patternName => {
+    let gridCopy = helpers.cloneGrid(this.state.grid);
+    let x = Math.ceil(this.rows / 2);
+    let y = Math.ceil(this.columns / 2);
+
+    gridCopy[x][y] = 1;
+    gridCopy[x][y - 1] = 1;
+    gridCopy[x][y + 1] = 1;
+
+    this.setState({ grid: gridCopy, running: true });
+    setTimeout(() => {
+      this.startGame();
+    }, 500);
   };
 
   play = () => {
@@ -144,7 +161,7 @@ class App extends Component {
         <h1>Conway's Game Of Life</h1>
 
         <InfoModal />
-        <PatternsMenu />
+        <PatternsMenu generatePattern={this.generatePattern} />
 
         <div className="generation-count">
           GENERATIONS
@@ -159,6 +176,7 @@ class App extends Component {
           />
 
           <Commands
+            running={this.state.running}
             updateSpeed={this.updateSpeed}
             setGridSize={this.setGridSize}
             generateCells={this.generateCells}

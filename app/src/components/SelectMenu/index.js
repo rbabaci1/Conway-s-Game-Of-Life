@@ -35,26 +35,36 @@ const MenuProps = {
   },
 };
 
-export default function SelectMenu({ handleChange, values, value }) {
+export default function SelectMenu({
+  handleChange,
+  values,
+  value,
+  separator = "",
+  name = "GRID SIZE",
+  width = "100px",
+}) {
   const classes = useStyles();
 
   return (
     <div>
-      <FormControl className={clsx(classes.formControl, classes.noLabel)}>
+      <FormControl
+        className={clsx(classes.formControl, classes.noLabel)}
+        style={{ width: width }}
+      >
         <Select
           value={value}
           onChange={handleChange}
           MenuProps={MenuProps}
           inputProps={{ "aria-label": "Without label" }}
         >
-          <MenuItem disabled value="">
-            <em>SIZE</em>
+          <MenuItem value={value} disabled>
+            <em>{name}</em>
           </MenuItem>
           {values.map(val => {
             let [v1, v2] = val.split("_");
             return (
               <MenuItem key={val} value={val}>
-                {v1} x {v2}
+                {v1} {separator} {v2}
               </MenuItem>
             );
           })}

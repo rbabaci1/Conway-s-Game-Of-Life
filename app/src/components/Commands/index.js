@@ -6,8 +6,7 @@ import SpeedSlider from "../SpeedSlider";
 import "./commands.scss";
 
 export default function Commands(commands) {
-  const [value, setValue] = useState("50_30");
-  const [running, setRunning] = useState(false);
+  const [value, setValue] = useState("GRID SIZE");
 
   const handleChange = e => {
     const [cols, rows] = e.target.value.split("_");
@@ -19,16 +18,14 @@ export default function Commands(commands) {
     <div className="commands">
       <Button
         onClick={() => {
-          running ? commands.pauseGame() : commands.startGame();
-          setRunning(!running);
+          commands.running ? commands.pauseGame() : commands.startGame();
         }}
-        text={running ? "Pause" : "Start"}
+        text={commands.running ? "Pause" : "Start"}
       />
 
       <Button
         onClick={() => {
           commands.clearGame();
-          setRunning(false);
         }}
         text="Clear"
       />
@@ -36,7 +33,6 @@ export default function Commands(commands) {
       <Button
         onClick={() => {
           commands.generateCells();
-          setRunning(true);
         }}
         text="Random"
       />
@@ -45,18 +41,22 @@ export default function Commands(commands) {
         handleChange={handleChange}
         values={["50_30", "70_50", "20_10"]}
         value={value}
+        separator="x"
       />
 
       <Button
         onClick={() => {
-          if (!running) {
+          if (!commands.running) {
             commands.showGenerations();
           }
         }}
         text="Cell Generations"
       />
 
-      <SpeedSlider updateSpeed={commands.updateSpeed} running={running} />
+      <SpeedSlider
+        updateSpeed={commands.updateSpeed}
+        running={commands.running}
+      />
     </div>
   );
 }
