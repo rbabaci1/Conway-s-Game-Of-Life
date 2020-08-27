@@ -9,4 +9,8 @@ const cellExists = (rows, cols, rowIndex, colIndex) => {
   return false;
 };
 
-export default { cloneGrid, cellExists };
+const updateCellTextContent = (row, col, generation) => {
+  document.getElementById(`${row}_${col}`).textContent = String(generation);
+};
+
+export default { cloneGrid, cellExists, updateCellTextContent };

@@ -76,8 +76,8 @@ class App extends Component {
   };
 
   showGenerations = () => {
-    for (let cell of document.getElementsByClassName("cell")) {
-      if (cell.style.color === "transparent") {
+    document.querySelectorAll(".cell").forEach(cell => {
+      if (cell.style.color === "transparent" || cell.style.color === "") {
         if (cell.classList.contains("alive")) {
           cell.style.color = "green";
         } else {
@@ -86,7 +86,8 @@ class App extends Component {
       } else {
         cell.style.color = "transparent";
       }
-    }
+    });
+    this.setState({ generationDisplayed: true });
   };
 
   setGridSize = (cols, rows) => {
@@ -118,17 +119,16 @@ class App extends Component {
         if (grid[row][col] && (neighbors < 2 || neighbors > 3)) {
           gridCopy[row][col] = 0;
 
-          document.getElementById(`${row}_${col}`).textContent = String(
-            this.state.generation
-          );
+          helpers.updateCellTextContent(row, col, this.state.generation);
         }
         // if a cell is dead and has 3 live neighbors, it will be born
         if (!grid[row][col] && neighbors === 3) {
           gridCopy[row][col] = 1;
+          helpers.updateCellTextContent(row, col, this.state.generation);
+        }
 
-          document.getElementById(`${row}_${col}`).textContent = String(
-            this.state.generation
-          );
+        if (this.state.generationDisplayed) {
+          this.showGenerations();
         }
       }
     }

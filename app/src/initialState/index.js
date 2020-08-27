@@ -4,6 +4,7 @@ const setInitialState = (rows, cols) => {
       .fill()
       .map(() => Array(cols).fill(0)),
     generation: 0,
+    generationDisplayed: false,
   };
 };
 
