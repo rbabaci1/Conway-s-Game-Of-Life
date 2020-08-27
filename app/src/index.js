@@ -72,6 +72,7 @@ class App extends Component {
 
     for (let cell of document.getElementsByClassName("cell")) {
       cell.style.color = "transparent";
+      cell.textContent = "1";
     }
   };
 

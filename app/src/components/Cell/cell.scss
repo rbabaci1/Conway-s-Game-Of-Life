@@ -1,5 +1,7 @@
 .cell {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 1px solid rgb(167, 165, 165);
   width: 17px;
   height: 17px;
@@ -8,18 +10,15 @@
   border-radius: 3px;
   cursor: pointer;
   color: transparent;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-size: 12px;
 
   &:hover {
-    background-color: rgb(252, 169, 180);
+    background-color: rgb(86, 231, 141);
   }
 }
 
 .alive {
-  background-color: rgb(94, 23, 50);
+  background-color: rgb(52, 204, 110);
 }
 .dead {
   background-color: rgb(231, 231, 231);
