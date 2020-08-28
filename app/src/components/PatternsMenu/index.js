@@ -20,6 +20,7 @@ export default function PatternsMenu({ generatePattern }) {
           "BEACON (P2)",
           "PULSAR (P3)",
           "THE VIRUS (P15)",
+          "GLIDER",
         ]}
         value={pattern}
         name="PATTERNS EXAMPLES"

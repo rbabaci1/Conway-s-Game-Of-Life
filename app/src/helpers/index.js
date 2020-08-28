@@ -122,8 +122,13 @@ const patternsGenerator = (grid, patternName, rows, cols) => {
       grid[x - 7][y - 1] = 1;
       grid[x - 8][y] = 1;
       grid[x - 9][y] = 1;
-
       break;
+    case "GLIDER":
+      grid[1][1] = 1;
+      grid[2][2] = 1;
+      grid[2][3] = 1;
+      grid[1][3] = 1;
+      grid[0][3] = 1;
   }
   return grid;
 };
