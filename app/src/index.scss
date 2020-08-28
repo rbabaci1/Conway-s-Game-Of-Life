@@ -52,7 +52,7 @@ h1 {
       outline: none;
       position: absolute;
       right: 50px;
-      top: 50px;
+      top: 40px;
     }
 
     h2 {
@@ -63,10 +63,15 @@ h1 {
   .select-menu {
     position: absolute;
     right: 60px;
-    top: 150px;
+    // top: 150px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 0 !important;
+    min-width: 0 !important;
+    background-color: #e0e0e0;
+    padding: 0 5px 5px 5px !important;
+    border-radius: 4px;
 
     select {
       font-size: 24px;
