@@ -151,9 +151,28 @@ code {
     text-align: center;
     position: relative;
     top: 50px;
+    -webkit-animation: action 1s infinite alternate;
+    animation: action 1.5s infinite alternate;
   }
 }
 
 .wrapper {
   position: relative;
+}
+
+@-webkit-keyframes action {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes action {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
 }
