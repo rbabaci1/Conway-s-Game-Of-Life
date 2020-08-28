@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid rgb(167, 165, 165);
+  border: 1px solid rgb(168, 168, 168);
   width: 16px;
   height: 16px;
   margin-left: -1px;
@@ -10,15 +10,15 @@
   border-radius: 2px;
   cursor: pointer;
   color: transparent;
-  font-size: 12px;
+  font-size: 11px;
 
   &:hover {
-    background-color: rgb(162, 250, 196);
+    background-color: rgb(142, 248, 182);
   }
 }
 
 .alive {
-  background-color: rgb(86, 231, 141);
+  background-color: rgb(37, 201, 64);
 }
 .dead {
   background-color: #fff;

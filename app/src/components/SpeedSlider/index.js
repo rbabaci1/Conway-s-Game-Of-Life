@@ -81,7 +81,6 @@ export default function SpeedSlider({ updateSpeed, running }) {
         valueLabelDisplay="auto"
         aria-label="pretto slider"
         defaultValue={100}
-        color="black"
         min={0}
         max={1500}
         onChange={handleChange}

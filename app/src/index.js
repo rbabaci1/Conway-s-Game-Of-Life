@@ -177,18 +177,18 @@ class App extends Component {
   updateGridSize = () => {
     if (this.state.windowWidth < 900 && this.state.windowWidth >= 525) {
       this.columns = 30;
+    } else if (this.columns === 70 && this.state.windowWidth < 1210) {
+      this.columns = 50;
     } else if (this.state.windowWidth < 525) {
       this.columns = 20;
-    } else {
-      this.columns = 50;
-      this.rows = 30;
     }
   };
 
   render() {
+    this.updateGridSize();
+
     return (
       <div className="App">
-        {this.updateGridSize()}
         <div className="bg-img" />
         <h1>Conway's Game Of Life</h1>
 

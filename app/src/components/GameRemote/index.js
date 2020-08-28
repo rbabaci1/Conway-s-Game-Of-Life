@@ -23,19 +23,9 @@ export default function Commands(commands) {
         text={commands.running ? "Pause" : "Start"}
       />
 
-      <Button
-        onClick={() => {
-          commands.clearGame();
-        }}
-        text="Clear"
-      />
+      <Button onClick={commands.clearGame} text="Clear" />
 
-      <Button
-        onClick={() => {
-          commands.generateCells();
-        }}
-        text="Random"
-      />
+      <Button onClick={commands.generateCells} text="Random" />
 
       {commands.windowWidth >= 900 ? (
         <SelectMenu
