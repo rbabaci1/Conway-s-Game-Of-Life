@@ -72,6 +72,14 @@ class InfoModal extends React.Component {
             rules continue to be applied repeatedly to create further
             generations.
           </p>
+
+          <div id="died">
+            <span>3</span> Represents the generation the cell died at.
+          </div>
+          <div id="alive">
+            <span>3</span> Represents the generation the cell was born.
+          </div>
+
           <p>
             Learn more about <strong>Conway's Game of Life</strong> at{" "}
             <a

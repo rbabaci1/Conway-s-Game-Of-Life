@@ -60,13 +60,33 @@ h1 {
 
     h2 {
       text-decoration: underline;
+      text-align: center;
+    }
+
+    span {
+      border: 1px solid #bdbcbc;
+      padding: 0 5px;
+      border-radius: 2px;
+    }
+
+    #died {
+      margin: 30px 0 10px 0;
+      span {
+        color: red;
+      }
+    }
+
+    #alive {
+      span {
+        background-color: rgb(86, 231, 141);
+        color: green;
+      }
     }
   }
 
   .select-menu {
     position: absolute;
     right: 60px;
-    // top: 150px;
     display: flex;
     justify-content: space-between;
     align-items: center;

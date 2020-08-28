@@ -3,7 +3,7 @@ const setInitialState = (rows, cols) => {
     grid: Array(rows)
       .fill()
       .map(() => Array(cols).fill(0)),
-    generation: 0,
+    generation: 1,
     running: false,
     generationDisplayed: false,
   };
