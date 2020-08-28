@@ -5,4 +5,8 @@
   display: flex;
   flex-wrap: wrap;
   transition: all 0.5s ease;
+
+  @media (max-width: 900px) {
+    margin-top: 60px;
+  }
 }

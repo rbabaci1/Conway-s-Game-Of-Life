@@ -175,10 +175,13 @@ class App extends Component {
   }
 
   updateGridSize = () => {
-    if (this.state.windowWidth < 900) {
+    if (this.state.windowWidth < 900 && this.state.windowWidth >= 525) {
       this.columns = 30;
+    } else if (this.state.windowWidth < 525) {
+      this.columns = 20;
     } else {
       this.columns = 50;
+      this.rows = 30;
     }
   };
 
