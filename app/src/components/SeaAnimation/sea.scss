@@ -1,0 +1,259 @@
+$medium-gray: rgb(80, 164, 219);
+
+@mixin drop-shadow($x, $y, $blur, $color, $id) {
+  filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=0, Color='#444')";
+  filter: url($id);
+  filter: drop-shadow($x $y $blur $color);
+}
+
+.ocean__nav {
+  padding: 4rem 0 1rem;
+  text-align: center;
+  li {
+    display: inline-block;
+  }
+  li a {
+    color: lighten($medium-gray, 40%);
+    text-decoration: none;
+    display: block;
+    padding: 0.66rem;
+    &:hover {
+      color: lighten($medium-gray, 10%);
+    }
+    &:focus {
+      outline-offset: -5px;
+    }
+    &:active {
+      text-decoration: underline;
+    }
+  }
+}
+
+.boat-animation {
+  height: 150px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+}
+
+.waves--front {
+  @include drop-shadow(0, 0, 10px, rgb(80, 164, 219), "#drop-shadow");
+  animation-name: sway--front;
+  z-index: 3;
+}
+
+.waves--rear {
+  @include drop-shadow(0, 0, 10px, rgb(80, 164, 219), "#drop-shadow");
+  animation-name: sway--rear;
+  z-index: 1;
+}
+
+.waves {
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+  position: absolute;
+  top: 0;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: none;
+  height: auto;
+  pointer-events: none;
+  width: 600px;
+}
+
+@keyframes hoist {
+  0% {
+    transform: translateY(130%) rotate(0);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(10deg);
+  }
+}
+
+@keyframes sink {
+  0% {
+    transform: rotate(0deg) translateY(0);
+  }
+  30% {
+    transform: rotate(-15deg) translate(-5%, 20%);
+  }
+  60% {
+    transform: rotate(15deg) translate(0%, 50%);
+  }
+  99% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(-20deg) translate(-5%, 120%);
+  }
+}
+
+@media (min-width: 800px) {
+  .waves--front {
+    @include drop-shadow(0, 0, 10px, rgb(80, 164, 219), "#drop-shadow");
+  }
+  .waves--rear {
+    @include drop-shadow(0, 0, 10px, rgb(80, 164, 219), "#drop-shadow");
+  }
+  .waves {
+    width: 1500px;
+  }
+  .paperboat {
+    width: 110px;
+    bottom: 162px;
+    left: calc(100px + (100vw - 320px) * 0.4);
+  }
+  @keyframes swim {
+    0% {
+      transform-origin: center;
+      transform: rotate3d(0, 0, 1, -8deg) translateY(0px);
+    }
+    46% {
+      transform-origin: center;
+      transform: rotate3d(0, 0, 1, -1deg) translateY(15px);
+    }
+    100% {
+      transform-origin: center;
+      transform: rotate3d(0, 0, 1, -8deg) translateY(0px);
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .waves {
+    width: 1800px;
+  }
+  .paperboat {
+    width: 130px;
+    bottom: 194px;
+  }
+}
+
+@media (min-width: 1550px) {
+  .waves {
+    width: 2000px;
+  }
+  .paperboat {
+    width: 130px;
+    bottom: 215px;
+    left: calc(100px + (100vw - 320px) * 0.4);
+  }
+}
+
+@media (min-width: 1700px) {
+  .waves {
+    width: 2300px;
+    bottom: -33px;
+  }
+  .waves--front {
+    @include drop-shadow(0, 0, 10px, rgb(80, 164, 219), "#drop-shadow");
+  }
+  .waves--rear {
+    @include drop-shadow(0, 0, 10px, rgb(80, 164, 219), "#drop-shadow");
+  }
+}
+
+@media (min-width: 1970px) {
+  .waves {
+    width: 2600px;
+    bottom: -70px;
+  }
+  .paperboat {
+    width: 135px;
+    bottom: 212px;
+    left: calc(100px + (100vw - 320px) * 0.4);
+  }
+  @keyframes swim {
+    0% {
+      transform-origin: center;
+      transform: rotate3d(0, 0, 1, -11deg) translateY(-1px);
+    }
+    48% {
+      transform-origin: center;
+      transform: rotate3d(0, 0, 1, -2deg) translateY(19px);
+    }
+    100% {
+      transform-origin: center;
+      transform: rotate3d(0, 0, 1, -11deg) translateY(-1px);
+    }
+  }
+}
+@media (min-width: 2230px) {
+  .waves {
+    width: 3000px;
+    bottom: -113px;
+  }
+  .paperboat {
+    width: 135px;
+    bottom: 214px;
+    left: calc(100px + (100vw - 320px) * 0.4);
+  }
+  @keyframes swim {
+    0% {
+      transform-origin: center;
+      transform: rotate3d(0, 0, 1, -11deg) translateY(-1px);
+    }
+    48% {
+      transform-origin: center;
+      transform: rotate3d(0, 0, 1, -2deg) translateY(19px);
+    }
+    100% {
+      transform-origin: center;
+      transform: rotate3d(0, 0, 1, -11deg) translateY(-1px);
+    }
+  }
+}
+@media (min-width: 0px 439px) {
+  @keyframes swim {
+    0% {
+      transform-origin: center;
+      transform: rotate3d(0, 0, 1, -8deg) translateY(7px);
+    }
+    46% {
+      transform-origin: center;
+      transform: rotate3d(0, 0, 1, -1deg) translateY(12px);
+    }
+    100% {
+      transform-origin: center;
+      transform: rotate3d(0, 0, 1, -8deg) translateY(7px);
+    }
+  }
+}
+
+@keyframes sway--front {
+  0% {
+    transform-origin: center;
+    transform: translateX(calc(-46% - 3%));
+  }
+  50% {
+    transform-origin: center;
+    transform: translateX(calc(-46% + 3%));
+  }
+  100% {
+    transform-origin: center;
+    transform: translateX(calc(-46% - 3%));
+  }
+}
+
+@keyframes sway--rear {
+  0% {
+    transform-origin: center;
+    transform: translateX(calc(-54% + 3%));
+  }
+  50% {
+    transform-origin: center;
+    transform: translateX(calc(-54% - 3%));
+  }
+  100% {
+    transform-origin: center;
+    transform: translateX(calc(-54% + 3%));
+  }
+}

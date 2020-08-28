@@ -9,6 +9,7 @@ import helpers from "./helpers";
 import InfoModal from "./components/InfoModal";
 import PatternsMenu from "./components/PatternsMenu";
 import "./index.scss";
+import SeaAnimation from "./components/SeaAnimation";
 
 class App extends Component {
   constructor() {
@@ -184,44 +185,53 @@ class App extends Component {
     }
   };
 
+  renderOcean = () => {
+    if (this.state.windowWidth > 900 && this.columns == 50) {
+      return <SeaAnimation />;
+    }
+  };
+
   render() {
     this.updateGridSize();
 
     return (
-      <div className="App">
-        <div className="bg-img" />
-        <h1>Conway's Game Of Life</h1>
+      <>
+        <div className="App">
+          <div className="bg-img" />
+          <h1>Conway's Game Of Life</h1>
 
-        <InfoModal />
-        {this.rows >= 30 && this.columns >= 50 ? (
-          <PatternsMenu generatePattern={this.generatePattern} />
-        ) : undefined}
+          <InfoModal />
+          {this.rows >= 30 && this.columns >= 50 ? (
+            <PatternsMenu generatePattern={this.generatePattern} />
+          ) : undefined}
 
-        <div className="generation-count">
-          GENERATIONS
-          <h2>{this.state.generation}</h2>
+          <div className="generation-count">
+            GENERATIONS
+            <h2>{this.state.generation}</h2>
+          </div>
+
+          <div className="main">
+            <Grid
+              grid={this.state.grid}
+              columns={this.columns}
+              selectCell={this.selectCell}
+            />
+
+            <GameRemote
+              running={this.state.running}
+              updateSpeed={this.updateSpeed}
+              setGridSize={this.setGridSize}
+              generateCells={this.generateCells}
+              startGame={this.startGame}
+              pauseGame={this.pauseGame}
+              clearGame={this.clearGame}
+              showGenerations={this.showGenerations}
+              windowWidth={this.state.windowWidth}
+            />
+          </div>
         </div>
-
-        <div className="main">
-          <Grid
-            grid={this.state.grid}
-            columns={this.columns}
-            selectCell={this.selectCell}
-          />
-
-          <GameRemote
-            running={this.state.running}
-            updateSpeed={this.updateSpeed}
-            setGridSize={this.setGridSize}
-            generateCells={this.generateCells}
-            startGame={this.startGame}
-            pauseGame={this.pauseGame}
-            clearGame={this.clearGame}
-            showGenerations={this.showGenerations}
-            windowWidth={this.state.windowWidth}
-          />
-        </div>
-      </div>
+        {this.renderOcean()}
+      </>
     );
   }
 }
