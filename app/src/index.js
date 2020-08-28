@@ -163,7 +163,9 @@ class App extends Component {
         <h1>Conway's Game Of Life</h1>
 
         <InfoModal />
-        <PatternsMenu generatePattern={this.generatePattern} />
+        {this.rows >= 30 && this.columns >= 50 ? (
+          <PatternsMenu generatePattern={this.generatePattern} />
+        ) : undefined}
 
         <div className="generation-count">
           GENERATIONS

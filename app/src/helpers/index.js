@@ -17,12 +17,12 @@ const patternsGenerator = (grid, patternName, rows, cols) => {
   let x = Math.ceil(rows / 2);
   let y = Math.ceil(cols / 2);
   switch (patternName) {
-    case "BLINKER":
+    case "BLINKER (P2)":
       grid[x][y] = 1;
       grid[x][y - 1] = 1;
       grid[x][y + 1] = 1;
       break;
-    case "TOAD":
+    case "TOAD (P2)":
       grid[x][y] = 1;
       grid[x][y + 1] = 1;
       grid[x][y + 2] = 1;
@@ -30,7 +30,7 @@ const patternsGenerator = (grid, patternName, rows, cols) => {
       grid[x - 1][y + 2] = 1;
       grid[x - 1][y + 3] = 1;
       break;
-    case "BEACON":
+    case "BEACON (P2)":
       grid[x][y] = 1;
       grid[x][y + 1] = 1;
       grid[x + 1][y] = 1;
@@ -38,6 +38,76 @@ const patternsGenerator = (grid, patternName, rows, cols) => {
       grid[x + 2][y + 3] = 1;
       grid[x + 3][y + 2] = 1;
       grid[x + 3][y + 3] = 1;
+      break;
+    case "PULSAR (P3)":
+      grid[x][y] = 1;
+      grid[x][y - 1] = 1;
+      grid[x][y - 2] = 1;
+
+      grid[x - 1][y - 4] = 1;
+      grid[x - 2][y - 4] = 1;
+      grid[x - 3][y - 4] = 1;
+
+      grid[x - 5][y - 2] = 1;
+      grid[x - 5][y - 1] = 1;
+      grid[x - 5][y] = 1;
+
+      grid[x - 3][y + 1] = 1;
+      grid[x - 2][y + 1] = 1;
+      grid[x - 1][y + 1] = 1;
+      ////////////////////////
+
+      grid[x - 1][y + 3] = 1;
+      grid[x - 2][y + 3] = 1;
+      grid[x - 3][y + 3] = 1;
+
+      grid[x - 5][y + 4] = 1;
+      grid[x - 5][y + 5] = 1;
+      grid[x - 5][y + 6] = 1;
+
+      grid[x - 3][y + 8] = 1;
+      grid[x - 2][y + 8] = 1;
+      grid[x - 1][y + 8] = 1;
+
+      grid[x][y + 6] = 1;
+      grid[x][y + 5] = 1;
+      grid[x][y + 4] = 1;
+      ////////////////////////
+
+      grid[x + 2][y + 6] = 1;
+      grid[x + 2][y + 5] = 1;
+      grid[x + 2][y + 4] = 1;
+
+      grid[x + 3][y + 3] = 1;
+      grid[x + 4][y + 3] = 1;
+      grid[x + 5][y + 3] = 1;
+
+      grid[x + 7][y + 4] = 1;
+      grid[x + 7][y + 5] = 1;
+      grid[x + 7][y + 6] = 1;
+
+      grid[x + 5][y + 8] = 1;
+      grid[x + 4][y + 8] = 1;
+      grid[x + 3][y + 8] = 1;
+      ////////////////////////
+
+      grid[x + 3][y + 1] = 1;
+      grid[x + 4][y + 1] = 1;
+      grid[x + 5][y + 1] = 1;
+
+      grid[x + 7][y] = 1;
+      grid[x + 7][y - 1] = 1;
+      grid[x + 7][y - 2] = 1;
+
+      grid[x + 5][y - 4] = 1;
+      grid[x + 4][y - 4] = 1;
+      grid[x + 3][y - 4] = 1;
+
+      grid[x + 2][y - 2] = 1;
+      grid[x + 2][y - 1] = 1;
+      grid[x + 2][y] = 1;
+
+      break;
   }
   return grid;
 };
