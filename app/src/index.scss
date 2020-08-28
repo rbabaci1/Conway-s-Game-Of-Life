@@ -16,13 +16,17 @@ code {
 
 h1 {
   margin: 0;
-  padding-top: 50px;
+  padding: 50px 0 20px 0;
   text-align: center;
   letter-spacing: 1px;
   font-size: 42px;
   font-family: Georgia, "Times New Roman", Times, serif;
   color: #e0e0e0;
   opacity: 0.8;
+
+  @media (max-width: 900px) {
+    font-size: 32px;
+  }
 }
 
 .App {
@@ -123,6 +127,16 @@ h1 {
       line-height: 20px;
       margin: 0;
       color: #d4d412;
+    }
+
+    @media (max-width: 900px) {
+      width: 120px;
+      height: 120px;
+      font-size: 12px;
+
+      h2 {
+        font-size: 40px;
+      }
     }
   }
 
