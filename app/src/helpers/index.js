@@ -106,6 +106,22 @@ const patternsGenerator = (grid, patternName, rows, cols) => {
       grid[x + 2][y - 2] = 1;
       grid[x + 2][y - 1] = 1;
       grid[x + 2][y] = 1;
+      break;
+    case "THE VIRUS (P15)":
+      grid[x][y] = 1;
+      grid[x - 1][y] = 1;
+      grid[x - 2][y + 1] = 1;
+      grid[x - 2][y - 1] = 1;
+
+      grid[x - 3][y] = 1;
+      grid[x - 4][y] = 1;
+      grid[x - 5][y] = 1;
+      grid[x - 6][y] = 1;
+
+      grid[x - 7][y + 1] = 1;
+      grid[x - 7][y - 1] = 1;
+      grid[x - 8][y] = 1;
+      grid[x - 9][y] = 1;
 
       break;
   }
