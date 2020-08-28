@@ -50,6 +50,7 @@ export default function SelectMenu({
       <FormControl
         className={clsx(classes.formControl, classes.noLabel)}
         style={{ width: width }}
+        className="select-form"
       >
         <Select
           value={value}
