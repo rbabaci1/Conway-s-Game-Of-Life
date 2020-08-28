@@ -88,7 +88,7 @@ export default function SeaAnimation() {
           alt="Wellen"
           src="//rostock-ahoi.de/assets/img/waves-front.svg"
           className="waves waves--front"
-        ></img>
+        />
       </div>
     </div>
   );
