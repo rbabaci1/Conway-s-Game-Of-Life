@@ -6,6 +6,7 @@ const setInitialState = (rows, cols) => {
     generation: 1,
     running: false,
     generationDisplayed: false,
+    windowWidth: window.innerWidth,
   };
 };
 

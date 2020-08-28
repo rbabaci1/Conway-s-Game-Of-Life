@@ -162,9 +162,30 @@ class App extends Component {
     }
   };
 
+  handleResize = () => {
+    this.setState({ windowWidth: window.innerWidth });
+  };
+
+  componentDidMount() {
+    window.addEventListener("resize", this.handleResize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.handleResize);
+  }
+
+  updateGridSize = () => {
+    if (this.state.windowWidth < 900) {
+      this.columns = 30;
+    } else {
+      this.columns = 50;
+    }
+  };
+
   render() {
     return (
       <div className="App">
+        {this.updateGridSize()}
         <div className="bg-img" />
         <h1>Conway's Game Of Life</h1>
 
@@ -194,6 +215,7 @@ class App extends Component {
             pauseGame={this.pauseGame}
             clearGame={this.clearGame}
             showGenerations={this.showGenerations}
+            windowWidth={this.state.windowWidth}
           />
         </div>
       </div>

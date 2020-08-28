@@ -131,7 +131,7 @@ const patternsGenerator = (grid, patternName, rows, cols) => {
       grid[1][3] = 1;
       grid[0][3] = 1;
       break;
-    case "SPACESHIP (LWSS)":
+    default:
       grid[x][y] = 1;
       grid[x][y - 1] = 1;
       grid[x][y - 2] = 1;

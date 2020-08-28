@@ -3,10 +3,6 @@ import SkyLight from "react-skylight";
 
 import InfoIcon from "../InfoIcon";
 class InfoModal extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     var styles = {
       backgroundColor: "#fff",
@@ -84,6 +80,7 @@ class InfoModal extends React.Component {
             Learn more about <strong>Conway's Game of Life</strong> at{" "}
             <a
               target="_blank"
+              rel="noopener noreferrer"
               href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life"
             >
               Wikipedia.

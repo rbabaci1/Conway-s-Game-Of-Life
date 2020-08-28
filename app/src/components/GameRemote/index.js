@@ -37,12 +37,14 @@ export default function Commands(commands) {
         text="Random"
       />
 
-      <SelectMenu
-        handleChange={handleChange}
-        values={["50_30", "70_50", "20_10"]}
-        value={value}
-        separator="x"
-      />
+      {commands.windowWidth >= 900 ? (
+        <SelectMenu
+          handleChange={handleChange}
+          values={["50_30", "70_50", "20_10"]}
+          value={value}
+          separator="x"
+        />
+      ) : undefined}
 
       <Button
         onClick={() => {
