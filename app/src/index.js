@@ -121,6 +121,7 @@ class App extends Component {
     */
     let grid = this.state.grid;
     let gridCopy = helpers.cloneGrid(this.state.grid);
+    let flag = false;
 
     for (let row = 0; row < this.rows; row++) {
       for (let col = 0; col < this.columns; col++) {
@@ -137,11 +138,13 @@ class App extends Component {
         if (grid[row][col] && (neighbors < 2 || neighbors > 3)) {
           gridCopy[row][col] = 0;
           helpers.updateCellTextContent(row, col, this.state.generation);
+          flag = true;
         }
         // if a cell is dead and has 3 live neighbors, it will be born
         if (!grid[row][col] && neighbors === 3) {
           gridCopy[row][col] = 1;
           helpers.updateCellTextContent(row, col, this.state.generation);
+          flag = true;
         }
 
         if (this.state.generationDisplayed) {
@@ -154,6 +157,10 @@ class App extends Component {
       generation: this.state.generation + 1,
       grid: gridCopy,
     });
+
+    if (!flag) {
+      this.pauseGame();
+    }
   };
 
   render() {

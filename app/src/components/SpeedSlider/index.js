@@ -34,7 +34,9 @@ ValueLabelComponent.propTypes = {
 const PrettoSlider = withStyles({
   root: {
     color: "#e1e10e",
-    height: 8,
+    height: 5,
+    position: "relative",
+    bottom: 12,
   },
   thumb: {
     height: 24,
@@ -42,7 +44,6 @@ const PrettoSlider = withStyles({
     backgroundColor: "#fff",
     border: "2px solid currentColor",
     marginTop: -8,
-    marginLeft: -12,
     "&:focus, &:hover, &$active": {
       boxShadow: "inherit",
     },
