@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import * as serviceWorker from "./serviceWorker";
 
 import Grid from "./components/Grid/index";
-import Commands from "./components/Commands";
+import GameRemote from "./components/GameRemote";
 import setInitialState from "./initialState";
 import helpers from "./helpers";
 import InfoModal from "./components/InfoModal";
@@ -59,13 +59,6 @@ class App extends Component {
     this.setState({ running: false });
   };
 
-  updateSpeed = (value, gameIsRunning) => {
-    this.speed = value;
-    if (gameIsRunning) {
-      this.startGame();
-    }
-  };
-
   clearGame = () => {
     clearInterval(this.intervalId);
     this.setState(setInitialState(this.rows, this.columns));
@@ -74,6 +67,19 @@ class App extends Component {
       cell.style.color = "transparent";
       cell.textContent = "1";
     }
+  };
+
+  updateSpeed = (value, gameIsRunning) => {
+    this.speed = value;
+    if (gameIsRunning) {
+      this.startGame();
+    }
+  };
+
+  setGridSize = (cols, rows) => {
+    this.rows = rows;
+    this.columns = cols;
+    this.clearGame();
   };
 
   showGenerations = () => {
@@ -91,17 +97,10 @@ class App extends Component {
     this.setState({ generationDisplayed: !this.state.generationDisplayed });
   };
 
-  setGridSize = (cols, rows) => {
-    this.rows = rows;
-    this.columns = cols;
-    this.clearGame();
-  };
-
   generatePattern = patternName => {
     this.setState(setInitialState(this.rows, this.columns), () => {
-      let gridCopy = helpers.cloneGrid(this.state.grid);
       let pattern = helpers.patternsGenerator(
-        gridCopy,
+        helpers.cloneGrid(this.state.grid),
         patternName,
         this.rows,
         this.columns
@@ -186,7 +185,7 @@ class App extends Component {
             selectCell={this.selectCell}
           />
 
-          <Commands
+          <GameRemote
             running={this.state.running}
             updateSpeed={this.updateSpeed}
             setGridSize={this.setGridSize}

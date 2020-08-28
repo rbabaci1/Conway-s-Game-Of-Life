@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import SelectMenu from "../SelectMenu";
 import Button from "../Button";
 import SpeedSlider from "../SpeedSlider";
-import "./commands.scss";
+import "./gameRemote.scss";
 
 export default function Commands(commands) {
   const [value, setValue] = useState("GRID SIZE");
