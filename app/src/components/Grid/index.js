@@ -5,7 +5,7 @@ import "./grid.scss";
 
 export default function Grid({ grid, columns, selectCell }) {
   return (
-    <div className="grid-container" style={{ maxWidth: columns * 18 }}>
+    <div className="grid-container" style={{ maxWidth: columns * 17 }}>
       {grid.map((row, rowIndex) =>
         row.map((col, colIndex) => (
           <Cell

@@ -3,23 +3,23 @@
   justify-content: center;
   align-items: center;
   border: 1px solid rgb(167, 165, 165);
-  width: 17px;
-  height: 17px;
+  width: 16px;
+  height: 16px;
   margin-left: -1px;
   margin-bottom: -1px;
-  border-radius: 3px;
+  border-radius: 2px;
   cursor: pointer;
   color: transparent;
   font-size: 12px;
 
   &:hover {
-    background-color: rgb(86, 231, 141);
+    background-color: rgb(162, 250, 196);
   }
 }
 
 .alive {
-  background-color: rgb(52, 204, 110);
+  background-color: rgb(86, 231, 141);
 }
 .dead {
-  background-color: rgb(231, 231, 231);
+  background-color: #fff;
 }
