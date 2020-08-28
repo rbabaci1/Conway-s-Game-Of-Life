@@ -3,9 +3,13 @@ import React from "react";
 import Cell from "../Cell";
 import "./grid.scss";
 
-export default function Grid({ grid, columns, selectCell }) {
+export default function Grid({ grid, columns, selectCell, running }) {
   return (
     <div className="grid-container" style={{ maxWidth: columns * 17 }}>
+      {!running ? (
+        <img src="https://cdn.pixabay.com/photo/2016/11/08/19/01/sunrise-1809178__480.jpg" />
+      ) : undefined}
+
       {grid.map((row, rowIndex) =>
         row.map((col, colIndex) => (
           <Cell

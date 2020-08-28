@@ -195,10 +195,9 @@ class App extends Component {
     this.updateGridSize();
 
     return (
-      <>
+      <div className="wrapper">
         <div className="App">
           <div className="bg-img" />
-          <h1>Conway's Game Of Life</h1>
 
           <InfoModal />
           {this.rows >= 30 && this.columns >= 50 ? (
@@ -215,6 +214,7 @@ class App extends Component {
               grid={this.state.grid}
               columns={this.columns}
               selectCell={this.selectCell}
+              running={this.state.running}
             />
 
             <GameRemote
@@ -230,8 +230,9 @@ class App extends Component {
             />
           </div>
         </div>
+
         {this.renderOcean()}
-      </>
+      </div>
     );
   }
 }
