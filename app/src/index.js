@@ -153,13 +153,13 @@ class App extends Component {
       }
     }
 
-    this.setState({
-      generation: this.state.generation + 1,
-      grid: gridCopy,
-    });
-
     if (!flag) {
       this.pauseGame();
+    } else {
+      this.setState({
+        generation: this.state.generation + 1,
+        grid: gridCopy,
+      });
     }
   };
 
