@@ -8,7 +8,9 @@ class InfoModal extends React.Component {
       backgroundColor: "#fff",
       color: "black",
       height: "100%",
+      width: "60%",
       top: "20%",
+      // right: "500px",
     };
 
     return (
