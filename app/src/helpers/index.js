@@ -16,6 +16,7 @@ const updateCellTextContent = (row, col, generation) => {
 const patternsGenerator = (grid, patternName, rows, cols) => {
   let x = Math.ceil(rows / 2);
   let y = Math.ceil(cols / 2);
+
   switch (patternName) {
     case "BLINKER (P2)":
       grid[x][y] = 1;
