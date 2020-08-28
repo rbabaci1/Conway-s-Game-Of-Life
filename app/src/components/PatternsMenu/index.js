@@ -21,6 +21,7 @@ export default function PatternsMenu({ generatePattern }) {
           "PULSAR (P3)",
           "THE VIRUS (P15)",
           "GLIDER",
+          "SPACESHIP (LWSS)",
         ]}
         value={pattern}
         name="PATTERNS EXAMPLES"
