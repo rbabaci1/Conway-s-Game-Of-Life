@@ -195,7 +195,7 @@ class App extends Component {
     this.updateGridSize();
 
     return (
-      <div className="wrapper">
+      <>
         <div className="App">
           <div className="bg-img" />
 
@@ -232,7 +232,7 @@ class App extends Component {
         </div>
 
         {this.renderOcean()}
-      </div>
+      </>
     );
   }
 }

@@ -15,6 +15,9 @@ code {
 }
 
 .App {
+  height: 88vh;
+  position: relative;
+
   .bg-img {
     background-image: url("https://cdn.pixabay.com/photo/2018/01/28/18/35/tunnel-3114374__480.jpg");
     background-size: cover;
@@ -146,18 +149,18 @@ code {
 
   .main {
     max-width: 1200px;
-    padding: 0 20px;
+    padding: 0 15px;
     margin: auto;
     text-align: center;
     position: relative;
-    top: 50px;
+    top: 35px;
     -webkit-animation: action 1.5s infinite alternate;
     animation: action 1.5s infinite alternate;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-}
-
-.wrapper {
-  position: relative;
 }
 
 @-webkit-keyframes action {
