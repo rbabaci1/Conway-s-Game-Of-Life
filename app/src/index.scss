@@ -18,6 +18,18 @@ code {
   height: 88vh;
   position: relative;
 
+  h1 {
+    position: absolute;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 48px;
+    margin: 0;
+    top: 50px;
+    letter-spacing: 1px;
+    font-family: "Courier New", Courier, monospace;
+  }
+
   .bg-img {
     background-image: url("https://cdn.pixabay.com/photo/2018/01/28/18/35/tunnel-3114374__480.jpg");
     background-size: cover;

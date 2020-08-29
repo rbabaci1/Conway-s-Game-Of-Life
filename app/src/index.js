@@ -197,6 +197,7 @@ class App extends Component {
     return (
       <>
         <div className="App">
+          <h1>Conway's Game Of Life</h1>
           <div className="bg-img" />
 
           <InfoModal />
