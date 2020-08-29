@@ -186,7 +186,7 @@ class App extends Component {
   };
 
   renderOcean = () => {
-    if (this.state.windowWidth > 900 && this.columns == 50) {
+    if (this.state.windowWidth > 900 && this.columns >= 50) {
       return <SeaAnimation />;
     }
   };
