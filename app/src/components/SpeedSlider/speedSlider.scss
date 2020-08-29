@@ -1,11 +1,16 @@
 #speed-num {
   font-weight: bold;
-  color: #d4d412;
+  color: yellow;
+  letter-spacing: 1px;
 }
 .MuiSlider-thumb span span span {
   color: black;
 }
 
-.makeStyles-margin-6 {
+.makeStyles-margin-2 {
   height: 0 !important;
+}
+
+.MuiTypography-root {
+  margin-bottom: 10px !important;
 }

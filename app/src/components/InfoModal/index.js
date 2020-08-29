@@ -10,7 +10,6 @@ class InfoModal extends React.Component {
       height: "100%",
       width: "60%",
       top: "20%",
-      // right: "500px",
     };
 
     return (
