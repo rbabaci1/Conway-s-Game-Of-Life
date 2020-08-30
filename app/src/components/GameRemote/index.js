@@ -30,7 +30,6 @@ export default function Commands(commands) {
       >
         CLEAR
       </button>
-      {/* <Button onClick={commands.clearGame} ref={buttonRef} text="Clear" /> */}
 
       <Button onClick={commands.generateCells} text="Random" />
 
