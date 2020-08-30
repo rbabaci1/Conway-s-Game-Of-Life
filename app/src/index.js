@@ -27,6 +27,7 @@ class App extends Component {
       [1, 0],
       [-1, 0],
     ];
+    this.buttonRef = React.createRef();
 
     this.state = setInitialState(this.rows, this.columns);
   }
@@ -169,6 +170,7 @@ class App extends Component {
 
   componentDidMount() {
     window.addEventListener("resize", this.handleResize);
+    this.updateGridSize();
   }
 
   componentWillUnmount() {
@@ -184,7 +186,7 @@ class App extends Component {
       this.columns = 20;
     }
 
-    // this.setRef.current.click();
+    this.buttonRef.current.click();
   };
 
   renderOcean = () => {
@@ -194,8 +196,6 @@ class App extends Component {
   };
 
   render() {
-    this.updateGridSize();
-
     return (
       <>
         <div className="App">
@@ -231,7 +231,7 @@ class App extends Component {
               clearGame={this.clearGame}
               showGenerations={this.showGenerations}
               windowWidth={this.state.windowWidth}
-              setRef={this.buttonRef}
+              buttonRef={this.buttonRef}
             />
           </div>
         </div>

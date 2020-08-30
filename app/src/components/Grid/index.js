@@ -13,7 +13,10 @@ export default function Grid({
   return (
     <div className="grid-container" style={{ maxWidth: columns * 17 }}>
       {!running && !generationDisplayed ? (
-        <img src="https://cdn.pixabay.com/photo/2016/11/08/19/01/sunrise-1809178__480.jpg" />
+        <img
+          src="https://cdn.pixabay.com/photo/2016/11/08/19/01/sunrise-1809178__480.jpg"
+          alt="grid bg"
+        />
       ) : undefined}
 
       {grid.map((row, rowIndex) =>

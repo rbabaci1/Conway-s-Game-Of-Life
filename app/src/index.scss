@@ -174,8 +174,8 @@ code {
     text-align: center;
     position: relative;
     top: 35px;
-    -webkit-animation: action 1.5s infinite alternate;
-    animation: action 1.2s infinite alternate;
+    -webkit-animation: action 1.3s infinite alternate;
+    animation: action 1.3s infinite alternate;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -193,7 +193,7 @@ code {
     transform: translateY(0);
   }
   100% {
-    transform: translateY(-10px);
+    transform: translateY(-15px);
   }
 }
 @keyframes action {
@@ -201,6 +201,6 @@ code {
     transform: translateY(0);
   }
   100% {
-    transform: translateY(-10px);
+    transform: translateY(-15px);
   }
 }
