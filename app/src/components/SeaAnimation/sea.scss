@@ -50,7 +50,7 @@ $medium-gray: rgb(80, 164, 219);
 }
 
 .waves {
-  animation-duration: 5s;
+  animation-duration: 4s;
   animation-iteration-count: infinite;
   animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
   position: absolute;
@@ -104,11 +104,6 @@ $medium-gray: rgb(80, 164, 219);
   .waves {
     width: 1500px;
   }
-  .paperboat {
-    width: 110px;
-    bottom: 162px;
-    left: calc(100px + (100vw - 320px) * 0.4);
-  }
   @keyframes swim {
     0% {
       transform-origin: center;
@@ -129,20 +124,11 @@ $medium-gray: rgb(80, 164, 219);
   .waves {
     width: 1800px;
   }
-  .paperboat {
-    width: 130px;
-    bottom: 194px;
-  }
 }
 
 @media (min-width: 1550px) {
   .waves {
     width: 2000px;
-  }
-  .paperboat {
-    width: 130px;
-    bottom: 215px;
-    left: calc(100px + (100vw - 320px) * 0.4);
   }
 }
 
@@ -164,11 +150,7 @@ $medium-gray: rgb(80, 164, 219);
     width: 2600px;
     bottom: -70px;
   }
-  .paperboat {
-    width: 135px;
-    bottom: 212px;
-    left: calc(100px + (100vw - 320px) * 0.4);
-  }
+
   @keyframes swim {
     0% {
       transform-origin: center;
@@ -188,11 +170,6 @@ $medium-gray: rgb(80, 164, 219);
   .waves {
     width: 3000px;
     bottom: -113px;
-  }
-  .paperboat {
-    width: 135px;
-    bottom: 214px;
-    left: calc(100px + (100vw - 320px) * 0.4);
   }
   @keyframes swim {
     0% {
