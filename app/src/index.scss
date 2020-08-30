@@ -38,6 +38,12 @@ code {
     }
   }
 
+  @media (max-width: 500px) {
+    h1 {
+      top: 100px;
+    }
+  }
+
   .bg-img {
     background-image: url("https://cdn.pixabay.com/photo/2018/01/28/18/35/tunnel-3114374__480.jpg");
     background-size: cover;
