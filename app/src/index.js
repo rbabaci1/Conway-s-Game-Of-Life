@@ -183,6 +183,8 @@ class App extends Component {
     } else if (this.state.windowWidth < 525) {
       this.columns = 20;
     }
+
+    // this.setRef.current.click();
   };
 
   renderOcean = () => {
@@ -216,6 +218,7 @@ class App extends Component {
               columns={this.columns}
               selectCell={this.selectCell}
               running={this.state.running}
+              generationDisplayed={this.state.generationDisplayed}
             />
 
             <GameRemote
@@ -228,6 +231,7 @@ class App extends Component {
               clearGame={this.clearGame}
               showGenerations={this.showGenerations}
               windowWidth={this.state.windowWidth}
+              setRef={this.buttonRef}
             />
           </div>
         </div>
