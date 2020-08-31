@@ -67,45 +67,6 @@ code {
       }
     }
   }
-  .skylight-dialog {
-    width: 80% !important;
-    left: 34% !important;
-  }
-  .modal {
-    button {
-      background-color: transparent;
-      border: none;
-      outline: none;
-      position: absolute;
-      right: 10px;
-      top: 10px;
-    }
-
-    h2 {
-      text-decoration: underline;
-      text-align: center;
-    }
-
-    span {
-      border: 1px solid rgb(168, 168, 168);
-      padding: 0 4px;
-      border-radius: 2px;
-    }
-
-    #died {
-      margin: 30px 0 10px 0;
-      span {
-        color: red;
-      }
-    }
-
-    #alive {
-      span {
-        background-color: rgb(37, 201, 64);
-        color: green;
-      }
-    }
-  }
 
   .select-menu {
     position: absolute;
