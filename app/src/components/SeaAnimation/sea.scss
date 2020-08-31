@@ -6,29 +6,6 @@ $medium-gray: rgb(80, 164, 219);
   filter: drop-shadow($x $y $blur $color);
 }
 
-.ocean__nav {
-  padding: 4rem 0 1rem;
-  text-align: center;
-  li {
-    display: inline-block;
-  }
-  li a {
-    color: lighten($medium-gray, 40%);
-    text-decoration: none;
-    display: block;
-    padding: 0.66rem;
-    &:hover {
-      color: lighten($medium-gray, 10%);
-    }
-    &:focus {
-      outline-offset: -5px;
-    }
-    &:active {
-      text-decoration: underline;
-    }
-  }
-}
-
 .boat-animation {
   height: 15vh;
   width: 100%;
@@ -55,13 +32,7 @@ $medium-gray: rgb(80, 164, 219);
   animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
   position: absolute;
   top: 0;
-  bottom: 0px;
   left: 50%;
-  transform: translateX(-50%);
-  max-width: none;
-  height: auto;
-  pointer-events: none;
-  width: 600px;
 }
 
 @keyframes hoist {

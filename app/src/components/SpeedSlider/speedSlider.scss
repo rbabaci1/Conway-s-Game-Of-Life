@@ -9,6 +9,10 @@
 
 .makeStyles-margin-2 {
   height: 0 !important;
+
+  @media (max-width: 500px) {
+    height: 18px !important;
+  }
 }
 
 .MuiTypography-root {

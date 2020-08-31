@@ -187,6 +187,7 @@ code {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
 
     @media (max-width: 900px) {
       animation: none;
