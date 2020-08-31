@@ -203,6 +203,7 @@ class App extends Component {
           <div className="bg-img" />
 
           <InfoModal />
+
           {this.rows >= 30 && this.columns >= 50 ? (
             <PatternsMenu generatePattern={this.generatePattern} />
           ) : undefined}
