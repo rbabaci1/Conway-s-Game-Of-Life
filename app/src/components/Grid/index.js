@@ -11,7 +11,7 @@ export default function Grid({
   generationDisplayed,
 }) {
   return (
-    <div className="grid-container" style={{ maxWidth: columns * 17 }}>
+    <div className="grid-container" style={{ maxWidth: columns * 18 }}>
       {!running && !generationDisplayed ? (
         <img
           src="https://cdn.pixabay.com/photo/2016/11/08/19/01/sunrise-1809178__480.jpg"
